@@ -2,7 +2,7 @@
 
 int main(int argc, char** argv) {
     QApplication app (argc, argv);
-    Init_Window init_window;
+    InitWindow init_window;
     init_window.show();
     return app.exec();
 }

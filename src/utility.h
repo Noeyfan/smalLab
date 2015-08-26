@@ -1,13 +1,13 @@
 #ifndef UTILITY
 #define UTILITY
 
-enum game_list {
-    ClockGame,
-    LivingFractions,
-    OrderOfOperations,
-    PrefixPagoda,
-    ReadingGame,
-    TeachingTool,
+enum GameList {
+    CLOCK_GAME = 0,
+    LIVING_FRACTIONS,
+    ORDER_OF_OPERATIONS,
+    PREFIX_PAGODA,
+    READING_GAME,
+    TEACHING_TOOL,
 };
 
 #endif // UTILITY
