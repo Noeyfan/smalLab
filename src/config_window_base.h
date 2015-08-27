@@ -13,21 +13,17 @@ public:
     explicit ConfigWindowBase(QWidget *parent = 0);
     virtual ~ConfigWindowBase() = default;
 
+    // base class should implement how Xml is readed
+    virtual void ReadXmlFileImp(QString) = 0;
+
 signals:
 
 public slots:
 
 private slots:
-    void get_xml_file_name() {
-        xml_file_name = QFileDialog::
-                getOpenFileName(this,tr("Open xml File"),
-                                QStandardPaths::locate(
-                                    QStandardPaths::DesktopLocation,
-                                    QString(),
-                                    QStandardPaths::LocateDirectory),
-                                tr("xml Files (*.xml)"));
-        qDebug("File opened: " + xml_file_name.toLatin1());
-    }
+    void get_xml_file_name();
+
+    void ReadXmlFile();
 
 protected:
     QPushButton* open_button;

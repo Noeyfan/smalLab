@@ -21,24 +21,9 @@ signals:
 public slots:
 
 private slots:
-    void set_selected_game(int idx) {
-        selected_game = idx;
-        qDebug("selected: %d" , idx);
-    }
+    void set_selected_game(int idx);
 
-    void EnterSelectedConfig() {
-        switch (selected_game) {
-            case LIVING_FRACTIONS: {
-                ConfigWindowBase* living_fractions_config_window = new LivingFractions(this);
-                living_fractions_config_window->show();
-                break;
-            }
-            default: {
-                QMessageBox::warning(this, "Message", game_list->itemText(selected_game),
-                                     QMessageBox::Ok);
-            }
-        }
-    }
+    void EnterSelectedConfig();
 
 private:
     QPushButton* open_button;
