@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QXmlStreamReader>
 
+// Main Game List
 enum GameList {
     CLOCK_GAME = 0,
     LIVING_FRACTIONS,
