@@ -15,19 +15,20 @@ public:
 
     // base class should implement how Xml is readed
     virtual void ReadXmlFileImp(QString) = 0;
-
-signals:
-
-public slots:
+    virtual void WriteXmlFileImp(QString) = 0;
 
 private slots:
     void get_xml_file_name();
-
+    void set_file_open_mode();
+    void set_file_save_mode();
     void ReadXmlFile();
+    void WriteXmlFile();
 
 protected:
     QPushButton* open_button;
+    QPushButton* save_button;
     QString xml_file_name;
+    bool mode = true;
 };
 
 #endif // CONFIGWINDOWBASE_H

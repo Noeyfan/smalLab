@@ -4,18 +4,22 @@
 #include "config_window_base.h"
 #include "utility.h"
 
-enum Format {
-    BLANK = 0,
-    FRACTION,
-    DECIMAL,
-    PERCENT,
-    ANGLE
-};
-
 struct LevelElement {
-    Format fraction1 = BLANK, fraction2 = BLANK, fraction3 = BLANK;
-    Format goal1rep = BLANK, goal2rep = BLANK, goal3rep = BLANK;
-    int goal1 = 0, goal2 = 0, goal3 = 0;
+    QString format1 = "", format2 = "", format3 = "",
+    goal1rep = "", goal2rep = "", goal3rep = "";
+    double goal1 = 0, goal2 = 0, goal3 = 0;
+
+    void print() const {
+        qDebug() << "format1: " << format1
+                 << " format2: " << format2
+                 << " format3: " << format3 << "\n";
+        qDebug() << "goal1: " << goal1
+                 << " goal2: " << goal2
+                 << " goal3: " << goal3 << "\n";
+        qDebug() << "goal1rep: " << goal1rep
+                 << " goal2rep: " << goal2rep
+                 << " goal3rep: " << goal3rep << "\n";
+    }
 };
 
 class LivingFractions : public ConfigWindowBase
@@ -24,12 +28,14 @@ class LivingFractions : public ConfigWindowBase
 public:
     explicit LivingFractions(QWidget *parent = 0);
     void ReadXmlFileImp(QString filename);
+    void WriteXmlFileImp(QString filename);
 
 signals:
 
 public slots:
 
 private:
+    int highest_denominator = 0;
     std::vector<LevelElement> levels;
 };
 

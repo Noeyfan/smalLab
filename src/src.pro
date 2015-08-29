@@ -12,3 +12,6 @@ SOURCES += \
 
 QT += \
     widgets
+
+CONFIG += \
+    c++11

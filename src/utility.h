@@ -2,7 +2,10 @@
 #define UTILITY
 
 #include <QFile>
+#include <QDebug>
 #include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QMessageBox>
 
 // Main Game List
 enum GameList {
@@ -14,21 +17,44 @@ enum GameList {
     TEACHING_TOOL,
 };
 
-// xml file wrapper
-class XmlFile : public QXmlStreamReader {
+struct MFile {
     QFile file;
 
-public:
-    XmlFile(QString filename) : file(filename) {
-        if (!file.open(QFile::ReadOnly | QFile::Text)) {
+    MFile(QString filename) : file(filename) {
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qDebug("File Not opened Correctly");
         }
-        this->setDevice(&file);
     }
 
-    ~XmlFile() {
-        file.close();
+    MFile(QString filename, bool) : file(filename) {
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+            qDebug("File Not opened Correctly");
+        }
     }
+
+    ~MFile() { file.close(); }
+};
+
+// xml file reader wrapper
+class XmlFileReader : public QXmlStreamReader {
+    MFile file;
+
+public:
+    XmlFileReader(QString filename, QString gamename, QWidget* cur_window) : file(filename) {
+        this->setDevice(&file.file);
+        if (this->readNextStartElement()) {
+            if (this->name() != gamename) {
+                QMessageBox::warning(cur_window, "Message", "Wrong config file",QMessageBox::Ok);
+            }
+        }
+    }
+};
+
+class XmlFileWriter : public QXmlStreamWriter {
+    MFile file;
+
+public:
+    XmlFileWriter(QString filename) : file(filename, true), QXmlStreamWriter(&file.file) { }
 };
 
 #endif // UTILITY
