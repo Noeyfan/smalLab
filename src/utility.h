@@ -6,6 +6,9 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QMessageBox>
+#include <QListView>
+#include <QStringListModel>
+#include <QStringList>
 
 // Main Game List
 enum GameList {

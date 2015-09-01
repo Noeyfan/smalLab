@@ -3,6 +3,27 @@
 
 LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
 {
+    listview = new QListView(this);
+    listview->resize(100,200);
+    listview->move(50, 100);
+
+    add = new QPushButton("+", this);
+    add->resize(add->width()/2, add->height());
+    add->move(50, 300);
+
+    rid = new QPushButton("-", this);
+    rid->resize(rid->width()/2, rid->height());
+    rid->move(100, 300);
+
+    model = new QStringListModel(strlist, NULL);
+    listview->setModel(model);
+
+    // connect
+    connect(add, SIGNAL(pressed()), this, SLOT(add_levels()));
+    connect(rid, SIGNAL(pressed()), this, SLOT(remove_levels()));
+    // TODO
+    connect(listview->selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)), this, SLOT(debug()));
+
 }
 
 void LivingFractions:: ReadXmlFileImp(QString filename) {
@@ -56,9 +77,14 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
         }
     }
 
+    // update qlistview
+    int i = 0;
     for (const auto& ele : levels) {
         ele.print();
+        strlist << QString::number(i++);
     }
+    model->setStringList(strlist);
+
 
     if (rxml.hasError()) {
         qDebug(rxml.errorString().toLatin1());
