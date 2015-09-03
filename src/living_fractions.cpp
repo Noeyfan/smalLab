@@ -3,9 +3,12 @@
 
 LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
 {
+    // listview
     listview = new QListView(this);
+    QLabel *list_view_label = new QLabel("levels", this);
     listview->resize(100,200);
     listview->move(50, 100);
+    list_view_label->move(50, 70);
 
     add = new QPushButton("+", this);
     add->resize(add->width()/2, add->height());
@@ -18,12 +21,21 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
     model = new QStringListModel(strlist, NULL);
     listview->setModel(model);
 
+    //Qline
+    goals.reserve(3);
+    for (int i = 0; i < 3; i++) {
+        goals[i] = new MTextField(this);
+        goals[i]->move(300, 150 + i * 60);
+        QLabel *goal_label = new QLabel("goal" + QString::number(i), this);
+        goal_label->move(300, 120 + i * 60);
+        connect(goals[i], SIGNAL(editingFinished()), this, SLOT(SetValue()));
+        connect(goals[i], SIGNAL(textEdited(QString)), this, SLOT(CheckEmpty()));
+    }
+
     // connect
     connect(add, SIGNAL(pressed()), this, SLOT(add_levels()));
     connect(rid, SIGNAL(pressed()), this, SLOT(remove_levels()));
-    // TODO
-    connect(listview->selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)), this, SLOT(debug()));
-
+    connect(listview->selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)), this, SLOT(Update(QModelIndex)));
 }
 
 void LivingFractions:: ReadXmlFileImp(QString filename) {
@@ -50,13 +62,13 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
                         level_element.format3 = rxml.readElementText();
                         rxml.readNext();
                     }else if (rxml.name() == "goal1") {
-                        level_element.goal1 = rxml.readElementText().toDouble();
+                        level_element.goals[0] = rxml.readElementText().toDouble();
                         rxml.readNext();
                     }else if (rxml.name() == "goal2") {
-                        level_element.goal2 = rxml.readElementText().toDouble();
+                        level_element.goals[1] = rxml.readElementText().toDouble();
                         rxml.readNext();
                     }else if (rxml.name() == "goal3") {
-                        level_element.goal3 = rxml.readElementText().toDouble();
+                        level_element.goals[2] = rxml.readElementText().toDouble();
                         rxml.readNext();
                     }else if (rxml.name() == "goal1rep") {
                         level_element.goal1rep = rxml.readElementText();
@@ -85,7 +97,6 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
     }
     model->setStringList(strlist);
 
-
     if (rxml.hasError()) {
         qDebug(rxml.errorString().toLatin1());
     }
@@ -94,6 +105,7 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
 void LivingFractions::WriteXmlFileImp(QString filename) {
     XmlFileWriter wxml(filename);
     wxml.setAutoFormatting(true);
+    SetValue();
 
     // lambda for write CData
     auto WriteCDataNumb = [&wxml](QString tag, int numb) {
@@ -117,19 +129,19 @@ void LivingFractions::WriteXmlFileImp(QString filename) {
         WriteCDataString("format2", ele.format2);
         WriteCDataString("format3", ele.format3);
 
-        if (ele.goal1 != 0)
+        if (ele.goals[0] != 0)
         {
-            WriteCDataNumb("goal1", ele.goal1);
+            WriteCDataNumb("goal1", ele.goals[0]);
             WriteCDataString("goal1rep", ele.goal1rep);
         }
-        if (ele.goal2 != 0)
+        if (ele.goals[1] != 0)
         {
-            WriteCDataNumb("goal2", ele.goal2);
+            WriteCDataNumb("goal2", ele.goals[1]);
             WriteCDataString("goal2rep", ele.goal2rep);
         }
-        if (ele.goal3 != 0)
+        if (ele.goals[2] != 0)
         {
-            WriteCDataNumb("goal3", ele.goal3);
+            WriteCDataNumb("goal3", ele.goals[2]);
             WriteCDataString("goal3rep", ele.goal3rep);
         }
         wxml.writeEndElement();

@@ -2,7 +2,7 @@
 
 ConfigWindowBase::ConfigWindowBase(QWidget *parent) : QMainWindow(parent)
 {
-    this->setFixedSize(500, 500);
+    this->setFixedSize(600, 500);
     open_button = new QPushButton("open file", this);
     save_button = new QPushButton("save file", this);
     save_button->move(400, 0);

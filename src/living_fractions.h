@@ -7,19 +7,25 @@
 struct LevelElement {
     QString format1 = "", format2 = "", format3 = "",
     goal1rep = "", goal2rep = "", goal3rep = "";
-    double goal1 = 0, goal2 = 0, goal3 = 0;
+    std::vector<double> goals;
+
+    LevelElement() : goals(3,0) { }
 
     void print() const {
         qDebug() << "format1: " << format1
                  << " format2: " << format2
                  << " format3: " << format3 << "\n";
-        qDebug() << "goal1: " << goal1
-                 << " goal2: " << goal2
-                 << " goal3: " << goal3 << "\n";
         qDebug() << "goal1rep: " << goal1rep
                  << " goal2rep: " << goal2rep
                  << " goal3rep: " << goal3rep << "\n";
     }
+};
+
+struct MTextField : public QLineEdit{
+    Q_OBJECT
+public:
+    MTextField(QWidget* parent) : QLineEdit(parent) { }
+public slots:
 };
 
 class LivingFractions : public ConfigWindowBase
@@ -52,6 +58,42 @@ private slots:
             }
         }
         model->setStringList(strlist);
+        Reset();
+    }
+
+    void Update(QModelIndex idx) {
+        Update(idx.row());
+    }
+
+    void Update(int idx) {
+        for (int i = 0; i < 3; i++) {
+            goals[i]->setText(QString::number(levels[idx].goals[i]));
+        }
+    }
+
+    void SetValue() {
+        // all value update should be here
+        if (levels.empty() || listview->currentIndex().row() == -1) { return; }
+        for (int i = 0; i < 3; i++) {
+            levels[listview->currentIndex().row()].goals[i] = goals[i]->text().toDouble();
+            qDebug() << goals[i]->text();
+        }
+    }
+
+    void Reset() {
+        for (int i = 0; i < 3; i++) {
+            goals[i]->setText("");
+        }
+    }
+
+    bool CheckEmpty() {
+        if (levels.empty() || listview->currentIndex().row() == -1) {
+            Reset();
+            QMessageBox::warning(this, "Message", "Please add a level first",
+                                 QMessageBox::Ok);
+            return true;
+        }
+        return false;
     }
 
     void debug() {
@@ -68,6 +110,9 @@ private:
     QPushButton* add;
     QPushButton* rid;
     QStringListModel* model;
+
+    //QLineEdit
+    std::vector<MTextField*> goals;
 };
 
 #endif // LIVING_FRACTIONS_H

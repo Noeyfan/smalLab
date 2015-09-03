@@ -9,6 +9,8 @@
 #include <QListView>
 #include <QStringListModel>
 #include <QStringList>
+#include <QLineEdit>
+#include <QLabel>
 
 // Main Game List
 enum GameList {
