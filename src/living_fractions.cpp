@@ -21,15 +21,43 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
     model = new QStringListModel(strlist, NULL);
     listview->setModel(model);
 
-    //Qline
+    //goals
     goals.reserve(3);
     for (int i = 0; i < 3; i++) {
         goals[i] = new MTextField(this);
-        goals[i]->move(300, 150 + i * 60);
-        QLabel *goal_label = new QLabel("goal" + QString::number(i), this);
-        goal_label->move(300, 120 + i * 60);
+        goals[i]->move(350, 150 + i * 60);
+        QLabel *goal_label = new QLabel("goal" + QString::number(i + 1), this);
+        goal_label->move(380, 120 + i * 60);
         connect(goals[i], SIGNAL(editingFinished()), this, SLOT(SetValue()));
         connect(goals[i], SIGNAL(textEdited(QString)), this, SLOT(CheckEmpty()));
+    }
+
+    // fractions
+    fractions.reserve(3);
+    for (int i = 0; i < 3; i++) {
+        fractions[i] = new QComboBox(this);
+        fractions[i]->addItems(QStringList(QList<QString> {
+                                    "blank", "fraction", "decimal",
+                                    "percent", "angle"}));
+        fractions[i]->resize(100, 25);
+        fractions[i]->move(200, 150 + i * 60);
+        QLabel *goal_label = new QLabel("format" + QString::number(i + 1), this);
+        goal_label->move(210, 120 + i * 60);
+        connect(fractions[i], SIGNAL(activated(int)), this, SLOT(SetValueFormat()));
+    }
+
+    //goalrep
+    goalreps.reserve(3);
+    for (int i = 0; i < 3; i++) {
+        goalreps[i] = new QComboBox(this);
+        goalreps[i]->addItems(QStringList(QList<QString> {
+                                    "blank", "fraction", "decimal",
+                                    "percent", "angle"}));
+        goalreps[i]->resize(100, 25);
+        goalreps[i]->move(500, 150 + i * 60);
+        QLabel *goal_label = new QLabel("goal" + QString::number(i + 1) + "rep", this);
+        goal_label->move(510, 120 + i * 60);
+        connect(goalreps[i], SIGNAL(activated(int)), this, SLOT(SetValueRep()));
     }
 
     // connect
@@ -53,13 +81,13 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
                 LevelElement level_element;
                 while (rxml.name() != "level") {
                     if (rxml.name() == "format1") {
-                        level_element.format1 = rxml.readElementText();
+                        level_element.formats[0] = rxml.readElementText();
                         rxml.readNext();
                     }else if (rxml.name() == "format2") {
-                        level_element.format2 = rxml.readElementText();
+                        level_element.formats[1] = rxml.readElementText();
                         rxml.readNext();
                     }else if (rxml.name() == "format3") {
-                        level_element.format3 = rxml.readElementText();
+                        level_element.formats[2] = rxml.readElementText();
                         rxml.readNext();
                     }else if (rxml.name() == "goal1") {
                         level_element.goals[0] = rxml.readElementText().toDouble();
@@ -71,13 +99,13 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
                         level_element.goals[2] = rxml.readElementText().toDouble();
                         rxml.readNext();
                     }else if (rxml.name() == "goal1rep") {
-                        level_element.goal1rep = rxml.readElementText();
+                        level_element.goalreps[0] = rxml.readElementText();
                         rxml.readNext();
                     }else if (rxml.name() == "goal2rep") {
-                        level_element.goal2rep = rxml.readElementText();
+                        level_element.goalreps[1] = rxml.readElementText();
                         rxml.readNext();
                     }else if (rxml.name() == "goal3rep") {
-                        level_element.goal3rep = rxml.readElementText();
+                        level_element.goalreps[2] = rxml.readElementText();
                         rxml.readNext();
                     }
                     rxml.readNext();
@@ -108,7 +136,7 @@ void LivingFractions::WriteXmlFileImp(QString filename) {
     SetValue();
 
     // lambda for write CData
-    auto WriteCDataNumb = [&wxml](QString tag, int numb) {
+    auto WriteCDataNumb = [&wxml](QString tag, double numb) {
         wxml.writeStartElement(tag);
         wxml.writeCDATA(QString::number(numb));
         wxml.writeEndElement();
@@ -125,24 +153,24 @@ void LivingFractions::WriteXmlFileImp(QString filename) {
 
     for (const auto& ele : levels) {
         wxml.writeStartElement("level");
-        WriteCDataString("format1", ele.format1);
-        WriteCDataString("format2", ele.format2);
-        WriteCDataString("format3", ele.format3);
+        WriteCDataString("format1", ele.formats[0]);
+        WriteCDataString("format2", ele.formats[1]);
+        WriteCDataString("format3", ele.formats[2]);
 
         if (ele.goals[0] != 0)
         {
             WriteCDataNumb("goal1", ele.goals[0]);
-            WriteCDataString("goal1rep", ele.goal1rep);
+            WriteCDataString("goal1rep", ele.goalreps[0]);
         }
         if (ele.goals[1] != 0)
         {
             WriteCDataNumb("goal2", ele.goals[1]);
-            WriteCDataString("goal2rep", ele.goal2rep);
+            WriteCDataString("goal2rep", ele.goalreps[1]);
         }
         if (ele.goals[2] != 0)
         {
             WriteCDataNumb("goal3", ele.goals[2]);
-            WriteCDataString("goal3rep", ele.goal3rep);
+            WriteCDataString("goal3rep", ele.goalreps[2]);
         }
         wxml.writeEndElement();
     }

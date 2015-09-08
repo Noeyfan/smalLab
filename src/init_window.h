@@ -1,10 +1,6 @@
 #ifndef INIT_WINDOW_H
 #define INIT_WINDOW_H
 
-#include <QMainWindow>
-#include <QComboBox>
-#include <QPushButton>
-#include <QApplication>
 #include "utility.h"
 #include "living_fractions.h"
 

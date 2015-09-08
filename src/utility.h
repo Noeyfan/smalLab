@@ -1,6 +1,10 @@
 #ifndef UTILITY
 #define UTILITY
 
+#include <QMainWindow>
+#include <QPushButton>
+#include <QApplication>
+#include <QComboBox>
 #include <QFile>
 #include <QDebug>
 #include <QXmlStreamReader>
@@ -11,6 +15,7 @@
 #include <QStringList>
 #include <QLineEdit>
 #include <QLabel>
+#include <QList>
 
 // Main Game List
 enum GameList {
