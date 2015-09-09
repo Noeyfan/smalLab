@@ -7,27 +7,36 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
     listview = new QListView(this);
     QLabel *list_view_label = new QLabel("levels", this);
     listview->resize(100,200);
-    listview->move(50, 100);
-    list_view_label->move(50, 70);
+    listview->move(50, 150);
+    list_view_label->move(50, 120);
 
     add = new QPushButton("+", this);
     add->resize(add->width()/2, add->height());
-    add->move(50, 300);
+    add->move(50, 350);
 
     rid = new QPushButton("-", this);
     rid->resize(rid->width()/2, rid->height());
-    rid->move(100, 300);
+    rid->move(100, 350);
 
     model = new QStringListModel(strlist, NULL);
     listview->setModel(model);
+
+    //highest denominator
+    QLabel *hd_label = new QLabel("highest\ndenominator", this);
+    hd_label->resize(hd_label->width() + 40, hd_label->height() + 80);
+    hd_label->move(50,10);
+    highest_denominator_txt = new MTextField(this);
+    highest_denominator_txt->move(50, 80);
+    highest_denominator_txt->resize(80, 30);
+    connect(highest_denominator_txt, SIGNAL(editingFinished()), this, SLOT(SetHD()));
 
     //goals
     goals.reserve(3);
     for (int i = 0; i < 3; i++) {
         goals[i] = new MTextField(this);
-        goals[i]->move(350, 150 + i * 60);
+        goals[i]->move(350, 200 + i * 60);
         QLabel *goal_label = new QLabel("goal" + QString::number(i + 1), this);
-        goal_label->move(380, 120 + i * 60);
+        goal_label->move(380, 170 + i * 60);
         connect(goals[i], SIGNAL(editingFinished()), this, SLOT(SetValue()));
         connect(goals[i], SIGNAL(textEdited(QString)), this, SLOT(CheckEmpty()));
     }
@@ -40,9 +49,9 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
                                     "blank", "fraction", "decimal",
                                     "percent", "angle"}));
         fractions[i]->resize(100, 25);
-        fractions[i]->move(200, 150 + i * 60);
+        fractions[i]->move(200, 200 + i * 60);
         QLabel *goal_label = new QLabel("format" + QString::number(i + 1), this);
-        goal_label->move(210, 120 + i * 60);
+        goal_label->move(210, 170 + i * 60);
         connect(fractions[i], SIGNAL(activated(int)), this, SLOT(SetValueFormat()));
     }
 
@@ -54,9 +63,9 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
                                     "blank", "fraction", "decimal",
                                     "percent", "angle"}));
         goalreps[i]->resize(100, 25);
-        goalreps[i]->move(500, 150 + i * 60);
+        goalreps[i]->move(500, 200 + i * 60);
         QLabel *goal_label = new QLabel("goal" + QString::number(i + 1) + "rep", this);
-        goal_label->move(510, 120 + i * 60);
+        goal_label->move(510, 170 + i * 60);
         connect(goalreps[i], SIGNAL(activated(int)), this, SLOT(SetValueRep()));
     }
 
@@ -68,6 +77,12 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
 
 void LivingFractions:: ReadXmlFileImp(QString filename) {
     XmlFileReader rxml(filename, "livingFractions", this);
+
+    // Clear List before load from File
+    levels.clear();
+    strlist.clear();
+    model->setStringList(strlist);
+
     qDebug() << rxml.name().toString();
     rxml.readNextStartElement();
     highest_denominator = rxml.readElementText().toInt();
@@ -123,6 +138,8 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
         ele.print();
         strlist << QString::number(i++);
     }
+    highest_denominator_txt->setText(QString::number(highest_denominator));
+
     model->setStringList(strlist);
 
     if (rxml.hasError()) {

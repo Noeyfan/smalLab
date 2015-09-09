@@ -109,6 +109,10 @@ private slots:
         }
     }
 
+    void SetHD() {
+        highest_denominator = highest_denominator_txt->text().toInt();
+    }
+
     void Reset() {
         for (int i = 0; i < 3; i++) {
             goals[i]->setText("");
@@ -144,6 +148,7 @@ private:
     std::vector<MTextField*> goals;
     std::vector<QComboBox*> fractions;
     std::vector<QComboBox*> goalreps;
+    MTextField* highest_denominator_txt;
 };
 
 #endif // LIVING_FRACTIONS_H
