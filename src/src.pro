@@ -15,3 +15,5 @@ QT += \
 
 CONFIG += \
     c++11
+
+QMAKE_MAC_SDK = macosx10.11
