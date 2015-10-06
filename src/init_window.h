@@ -3,6 +3,7 @@
 
 #include "utility.h"
 #include "living_fractions.h"
+#include "cupcake_war.h"
 
 class InitWindow : public QMainWindow
 {

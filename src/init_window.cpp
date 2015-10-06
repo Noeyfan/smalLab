@@ -22,6 +22,7 @@ InitWindow::InitWindow(QWidget *parent) : QMainWindow(parent)
     game_list->addItem("Prefix Pagoda");
     game_list->addItem("Reading Game");
     game_list->addItem("Teaching Tool");
+    game_list->addItem("Cupcake War");
 
     // connect
     connect(game_list, SIGNAL (currentIndexChanged(int)), this, SLOT (set_selected_game(int)));
@@ -34,6 +35,11 @@ void InitWindow::EnterSelectedConfig() {
         case LIVING_FRACTIONS: {
             ConfigWindowBase* living_fractions_config_window = new LivingFractions(this);
             living_fractions_config_window->show();
+            break;
+        }
+        case CUPCAKE_WAR: {
+            ConfigWindowBase* cupcake_war = new CupcakeWar(this);
+            cupcake_war->show();
             break;
         }
         default: {

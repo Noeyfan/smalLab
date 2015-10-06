@@ -4,6 +4,8 @@
 #include "config_window_base.h"
 #include "utility.h"
 
+// Should specifiy NAME_ELEMENT
+// Or Should be defined in the class
 struct LevelElement {
     //QString format1 = "", format2 = "", format3 = "",
     //goal1rep = "", goal2rep = "", goal3rep = "";
@@ -43,6 +45,8 @@ signals:
 public slots:
 
 private slots:
+    bool CheckEmpty();
+
     void add_levels() {
         strlist << QString::number(levels.size());
         levels.push_back(LevelElement());
@@ -117,16 +121,6 @@ private slots:
         for (int i = 0; i < 3; i++) {
             goals[i]->setText("");
         }
-    }
-
-    bool CheckEmpty() {
-        if (levels.empty() || listview->currentIndex().row() == -1) {
-            Reset();
-            QMessageBox::warning(this, "Message", "Please select or add a level first",
-                                 QMessageBox::Ok);
-            return true;
-        }
-        return false;
     }
 
     void debug() {

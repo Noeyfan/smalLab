@@ -35,6 +35,7 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
     for (int i = 0; i < 3; i++) {
         goals[i] = new MTextField(this);
         goals[i]->move(350, 200 + i * 60);
+        goals[i]->setValidator(validator);
         QLabel *goal_label = new QLabel("goal" + QString::number(i + 1), this);
         goal_label->move(380, 170 + i * 60);
         connect(goals[i], SIGNAL(editingFinished()), this, SLOT(SetValue()));
@@ -68,7 +69,6 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
         goal_label->move(510, 170 + i * 60);
         connect(goalreps[i], SIGNAL(activated(int)), this, SLOT(SetValueRep()));
     }
-
     // connect
     connect(add, SIGNAL(pressed()), this, SLOT(add_levels()));
     connect(rid, SIGNAL(pressed()), this, SLOT(remove_levels()));
@@ -193,4 +193,14 @@ void LivingFractions::WriteXmlFileImp(QString filename) {
     }
     wxml.writeEndElement();
     wxml.writeEndElement();
+}
+
+bool LivingFractions::CheckEmpty() {
+    if (levels.empty() || listview->currentIndex().row() == -1) {
+        Reset();
+        QMessageBox::warning(this, "Message", "Please select or add a level first",
+                             QMessageBox::Ok);
+        return true;
+    }
+    return false;
 }

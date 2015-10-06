@@ -1,10 +1,7 @@
 #ifndef CONFIGWINDOWBASE_H
 #define CONFIGWINDOWBASE_H
 
-#include <QMainWindow>
-#include <QPushButton>
-#include <QFileDialog>
-#include <QStandardPaths>
+#include "utility.h"
 
 class ConfigWindowBase : public QMainWindow
 {
@@ -16,6 +13,9 @@ public:
     // base class should implement how Xml is readed
     virtual void ReadXmlFileImp(QString) = 0;
     virtual void WriteXmlFileImp(QString) = 0;
+
+public:
+    virtual bool CheckEmpty() = 0;
 
 private slots:
     void get_xml_file_name();
@@ -29,6 +29,7 @@ protected:
     QPushButton* save_button;
     QString xml_file_name;
     bool mode = true;
+    QValidator* validator;
 };
 
 #endif // CONFIGWINDOWBASE_H

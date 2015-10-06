@@ -2,13 +2,17 @@ HEADERS += \
     init_window.h \
     utility.h \
     living_fractions.h \
-    config_window_base.h
+    config_window_base.h \
+    cupcake_war.h \
+    mlist.h
 
 SOURCES += \
     init_window.cpp \
     main.cpp \
     living_fractions.cpp \
-    config_window_base.cpp
+    config_window_base.cpp \
+    cupcake_war.cpp \
+    mlist.cpp
 
 QT += \
     widgets

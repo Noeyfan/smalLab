@@ -1,5 +1,10 @@
 #ifndef UTILITY
 #define UTILITY
+#include <QMainWindow>
+#include <QPushButton>
+#include <QFileDialog>
+#include <QStandardPaths>
+#include <QRegExpValidator>
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -16,6 +21,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QList>
+#include <QCheckBox>
 
 // Main Game List
 enum GameList {
@@ -25,6 +31,7 @@ enum GameList {
     PREFIX_PAGODA,
     READING_GAME,
     TEACHING_TOOL,
+    CUPCAKE_WAR
 };
 
 struct MFile {
