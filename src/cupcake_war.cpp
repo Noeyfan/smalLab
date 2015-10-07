@@ -31,12 +31,12 @@ void CupcakeWar::ReadXmlFileImp(QString filename) {
         rxml.readNext();
         if (rxml.name() == "level") {
             rxml.readNext();
-            std::vector<std::pair<bool, int>> item(nutritions.size(), {false, 0});
+            std::vector<std::pair<bool, float>> item(nutritions.size(), {false, 0});
             while (rxml.name() != "level") {
                 if (rxml.name() == "item") {
                     qDebug() << rxml.attributes().value("index") << rxml.attributes().value("value");
                     item[rxml.attributes().value("index").toInt()] =
-                            std::make_pair(true, rxml.attributes().value("value").toInt());
+                            std::make_pair(true, rxml.attributes().value("value").toFloat());
                     rxml.readNext();
                 }
                 rxml.readNext();
