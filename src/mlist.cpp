@@ -22,3 +22,39 @@ MList::MList(QWidget *parent) : QListView(parent)
     connect(rid, SIGNAL(pressed()), this, SLOT(remove_levels()));
 }
 
+auto MList::selectionModel() -> decltype(QListView::selectionModel()){
+    return QListView::selectionModel();
+}
+
+int MList::currentIndex() {
+    return QListView::currentIndex().row();
+}
+
+void MList::setLines(int lines) {
+    strlist.clear();
+    for (int i = 0; i < lines; ++i) {
+        strlist << QString::number(i);
+    }
+    num_of_lines = lines;
+    model->setStringList(strlist);
+}
+
+void MList::clear() {
+    strlist.clear();
+    model->setStringList(strlist);
+    num_of_lines = 0;
+}
+
+void MList::add_levels() {
+    strlist << QString::number(num_of_lines++);
+    model->setStringList(strlist);
+    emit level_added();
+}
+
+void MList::remove_levels() {
+    int idx = currentIndex();
+    strlist.removeAt(idx);
+    this->setLines(--num_of_lines);
+    emit level_deleted(idx);
+}
+

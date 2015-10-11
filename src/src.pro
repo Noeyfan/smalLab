@@ -4,7 +4,8 @@ HEADERS += \
     living_fractions.h \
     config_window_base.h \
     cupcake_war.h \
-    mlist.h
+    mlist.h \
+    clock_game.h
 
 SOURCES += \
     init_window.cpp \
@@ -12,7 +13,8 @@ SOURCES += \
     living_fractions.cpp \
     config_window_base.cpp \
     cupcake_war.cpp \
-    mlist.cpp
+    mlist.cpp \
+    clock_game.cpp
 
 QT += \
     widgets

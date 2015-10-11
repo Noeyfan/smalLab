@@ -42,6 +42,12 @@ void InitWindow::EnterSelectedConfig() {
             cupcake_war->show();
             break;
         }
+        case CLOCK_GAME: {
+            ConfigWindowBase* clock_game = new ClockGame(this);
+            clock_game->show();
+            break;
+        }
+
         default: {
             QMessageBox::warning(this, "Message", game_list->itemText(selected_game),
                                  QMessageBox::Ok);
