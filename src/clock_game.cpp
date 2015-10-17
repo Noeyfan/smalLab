@@ -1,12 +1,24 @@
 #include "clock_game.h"
 
 ClockGame::ClockGame(QWidget *parent) : ConfigWindowBase(parent), list_view(new MList(this)) {
+    QLabel *label1 = new QLabel("start hour", this);
+    QLabel *label2 = new QLabel("start minute", this);
+    QLabel *label3 = new QLabel("start am/pm", this);
+    QLabel *label4 = new QLabel("end hour", this);
+    QLabel *label5 = new QLabel("end minute", this);
+    QLabel *label6 = new QLabel("duration hour", this);
+    QLabel *label7 = new QLabel("duration minute", this);
+    QLabel *label8 = new QLabel("end am/pm", this);
+
     start_hour = new QLineEdit("0", this);
     start_hour->move(200, 100 + 60);
+    label1->move(200, 130);
     start_minute = new QLineEdit("0", this);
     start_minute->move(320, 100 + 60);
+    label2->move(320, 130);
     start_am_pm = new QComboBox(this);
     start_am_pm->move(440, 100 + 60);
+    label3->move(440, 130);
     start_am_pm->addItems(am_pm);
 
     connect(start_hour, SIGNAL(editingFinished()), this, SLOT(SetVal()));
@@ -16,15 +28,20 @@ ClockGame::ClockGame(QWidget *parent) : ConfigWindowBase(parent), list_view(new 
     duration_hour = new QLineEdit("0", this);
     duration_minute = new QLineEdit("0", this);
     duration_hour->move(200, 175 + 60);
+    label6->move(200, 205);
     duration_minute->move(320, 175 + 60);
+    label7->move(320, 205);
 
     end_hour = new QLineEdit("0", this);
     end_hour->move(200, 250 + 60);
+    label4->move(200, 280);
     end_minute = new QLineEdit("0", this);
     end_minute->move(320, 250 + 60);
+    label5->move(320, 280);
     end_am_pm = new QComboBox(this);
     end_am_pm->move(440, 250 + 60);
     end_am_pm->addItems(am_pm);
+    label8->move(440, 280);
 
     connect(end_hour, SIGNAL(editingFinished()), this, SLOT(SetVal()));
     connect(end_minute, SIGNAL(editingFinished()), this, SLOT(SetVal()));

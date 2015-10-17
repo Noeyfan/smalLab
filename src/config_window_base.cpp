@@ -1,6 +1,6 @@
 #include "config_window_base.h"
 
-ConfigWindowBase::ConfigWindowBase(QWidget *parent) : QMainWindow(parent), validator(new QRegExpValidator(QRegExp("^[0-9]+.[0-9]+$"),this))
+ConfigWindowBase::ConfigWindowBase(QWidget *parent) : QMainWindow(parent), validator(new QRegExpValidator(QRegExp("^[0-9]*(.)*[0-9]+$"),this))
 {
     this->setFixedSize(700, 500);
     open_button = new QPushButton("open file", this);

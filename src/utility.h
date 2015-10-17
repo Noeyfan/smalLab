@@ -34,7 +34,8 @@ enum GameList {
     CUPCAKE_WAR
 };
 
-struct MFile {
+class MFile {
+public:
     QFile file;
 
     MFile(QString filename) : file(filename) {
@@ -50,6 +51,29 @@ struct MFile {
     }
 
     ~MFile() { file.close(); }
+};
+
+class MTextField : QLineEdit {
+    Q_OBJECT
+
+public:
+    // ctor for class that don't need empty check
+    explicit MTextField(QWidget* parent) : QLineEdit(parent) { }
+
+    MTextField(QWidget* parent, std::function<void()>& f) : QLineEdit(parent), check_empty(f) {
+        connect(this, SIGNAL(textEdited(QString)), this, SLOT(check_empty()));
+    }
+
+    MTextField(QWidget* parent, std::function<void()>& f, QString regex = "^[0-9]*(.)*[0-9]+$")
+    : validator(new QRegExpValidator(QRegExp(regex),parent)) {
+        this->setValidator(validator);
+    }
+
+
+
+private:
+    std::function<void()> check_empty;
+    QValidator* validator;
 };
 
 // xml file reader wrapper

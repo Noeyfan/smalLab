@@ -25,13 +25,6 @@ struct LevelElement {
     }
 };
 
-struct MTextField : public QLineEdit{
-    Q_OBJECT
-public:
-    MTextField(QWidget* parent) : QLineEdit(parent) { }
-public slots:
-};
-
 class LivingFractions : public ConfigWindowBase
 {
     Q_OBJECT
@@ -82,11 +75,11 @@ private slots:
 
     void SetValue() {
         SetValueGoal();
-        // SetValueFormat(); BUG HERE TODO
-        // SetValueRep();
+        qDebug() << "Setted\n";
     }
 
     void SetValueGoal() {
+        qDebug() << "Setted goal\n";
         if (levels.empty() || listview->currentIndex().row() == -1) { return; }
         int row = listview->currentIndex().row();
         for (int i = 0; i < 3; i++) {
@@ -95,6 +88,7 @@ private slots:
     }
 
     void SetValueFormat() {
+        qDebug() << "Setted format\n";
         if (levels.empty() || listview->currentIndex().row() == -1) { return; }
         int row = listview->currentIndex().row();
         for (int i = 0; i < 3; i++) {
@@ -103,6 +97,7 @@ private slots:
     }
 
     void SetValueRep() {
+        qDebug() << "Setted rep\n";
         if (levels.empty() || listview->currentIndex().row() == -1) { return; }
         int row = listview->currentIndex().row();
         for (int i = 0; i < 3; i++) {
@@ -139,10 +134,10 @@ private:
     QStringListModel* model;
 
     //QLineEdit
-    std::vector<MTextField*> goals;
+    std::vector<QLineEdit*> goals;
     std::vector<QComboBox*> fractions;
     std::vector<QComboBox*> goalreps;
-    MTextField* highest_denominator_txt;
+    QLineEdit* highest_denominator_txt;
 };
 
 #endif // LIVING_FRACTIONS_H

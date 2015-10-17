@@ -25,7 +25,7 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
     QLabel *hd_label = new QLabel("highest\ndenominator", this);
     hd_label->resize(hd_label->width() + 40, hd_label->height() + 80);
     hd_label->move(50,10);
-    highest_denominator_txt = new MTextField(this);
+    highest_denominator_txt = new QLineEdit(this);
     highest_denominator_txt->move(50, 80);
     highest_denominator_txt->resize(80, 30);
     connect(highest_denominator_txt, SIGNAL(editingFinished()), this, SLOT(SetHD()));
@@ -33,7 +33,7 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
     //goals
     goals.reserve(3);
     for (int i = 0; i < 3; i++) {
-        goals[i] = new MTextField(this);
+        goals[i] = new QLineEdit(this);
         goals[i]->move(350, 200 + i * 60);
         goals[i]->setValidator(validator);
         QLabel *goal_label = new QLabel("goal" + QString::number(i + 1), this);
