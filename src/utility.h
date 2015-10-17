@@ -60,20 +60,27 @@ public:
     // ctor for class that don't need empty check
     explicit MTextField(QWidget* parent) : QLineEdit(parent) { }
 
-    MTextField(QWidget* parent, std::function<void()>& f) : QLineEdit(parent), check_empty(f) {
+    MTextField(QWidget* parent, QString name, std::function<void()>& f)
+    : MTextField(parent, name, f, "^[0-9]*(.)*[0-9]+$")
+    { }
+
+    MTextField(QWidget* parent, QString name, std::function<void()>& f, QString regex)
+    : validator(new QRegExpValidator(QRegExp(regex),parent)), label(new QLabel(name, this)) {
+        this->setValidator(validator);
         connect(this, SIGNAL(textEdited(QString)), this, SLOT(check_empty()));
     }
 
-    MTextField(QWidget* parent, std::function<void()>& f, QString regex = "^[0-9]*(.)*[0-9]+$")
-    : validator(new QRegExpValidator(QRegExp(regex),parent)) {
-        this->setValidator(validator);
+    void move(int x, int y) {
+        static_cast<QLineEdit*>(this)->move(x,y);
+        label->move(x, y - 30);
     }
 
-
+    //  regex = "^[0-9]*(.)*[0-9]+$"
 
 private:
     std::function<void()> check_empty;
     QValidator* validator;
+    QLabel *label;
 };
 
 // xml file reader wrapper
