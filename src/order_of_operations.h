@@ -1,24 +1,22 @@
-#ifndef ORDEROFOPERATIONS_H
-#define ORDEROFOPERATIONS_H
+#ifndef ORDER_OF_OPERATIONS_H
+#define ORDER_OF_OPERATIONS_H
 
-#include "config_window_base.h"
-#include "mlist.h"
-#include "utility.h"
+#include <QMainWindow>
 
-class OrderOfOperations : public ConfigWindowBase
+namespace Ui {
+class OrderOfOperations;
+}
+
+class OrderOfOperations : public QMainWindow
 {
     Q_OBJECT
+
 public:
-    OrderOfOperations(QWidget* parent);
+    explicit OrderOfOperations(QWidget *parent = 0);
+    ~OrderOfOperations();
 
-    void ReadXmlFileImp(QString);
-    void WriteXmlFileImp(QString);
-    bool CheckEmpty();
-    QString HelpImp();
-
-signals:
-
-public slots:
+private:
+    Ui::OrderOfOperations *ui;
 };
 
-#endif // ORDEROFOPERATIONS_H
+#endif // ORDER_OF_OPERATIONS_H
