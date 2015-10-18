@@ -25,3 +25,6 @@ CONFIG += \
     c++11
 
 QMAKE_MAC_SDK = macosx10.11
+
+FORMS += \
+    order_of_operations.ui
