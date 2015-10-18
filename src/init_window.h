@@ -5,6 +5,7 @@
 #include "living_fractions.h"
 #include "cupcake_war.h"
 #include "clock_game.h"
+#include "order_of_operations.h"
 
 class InitWindow : public QMainWindow
 {

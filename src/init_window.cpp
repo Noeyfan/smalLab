@@ -47,6 +47,11 @@ void InitWindow::EnterSelectedConfig() {
             clock_game->show();
             break;
         }
+        case ORDER_OF_OPERATIONS: {
+            ConfigWindowBase* order_of_operations = new OrderOfOperations(this);
+            order_of_operations->show();
+            break;
+        }
 
         default: {
             QMessageBox::warning(this, "Message", game_list->itemText(selected_game),

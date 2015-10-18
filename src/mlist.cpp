@@ -1,8 +1,7 @@
 #include "mlist.h"
 
-MList::MList(QWidget *parent) : QListView(parent)
+MList::MList(QWidget *parent, QString name) : QListView(parent), list_view_label(new QLabel(name, parent))
 {
-    QLabel *list_view_label = new QLabel("levels", parent);
     this->resize(100,200);
     this->move(50, 150);
     list_view_label->move(50, 120);

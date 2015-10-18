@@ -22,6 +22,9 @@
 #include <QLabel>
 #include <QList>
 #include <QCheckBox>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QTextEdit>
 
 // Main Game List
 enum GameList {

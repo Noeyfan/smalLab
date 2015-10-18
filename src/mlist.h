@@ -8,11 +8,12 @@ class MList : public QListView {
     QStringListModel* model;
     QPushButton* add;
     QPushButton* rid;
+    QLabel* list_view_label;
     int num_of_lines = 0;
 
     Q_OBJECT
 public:
-    explicit MList(QWidget*);
+    explicit MList(QWidget*, QString name = "levels");
     QItemSelectionModel* selectionModel();
     int currentIndex();
     void setLines(int lines);

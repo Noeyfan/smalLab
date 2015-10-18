@@ -5,7 +5,8 @@ HEADERS += \
     config_window_base.h \
     cupcake_war.h \
     mlist.h \
-    clock_game.h
+    clock_game.h \
+    order_of_operations.h
 
 SOURCES += \
     init_window.cpp \
@@ -14,7 +15,8 @@ SOURCES += \
     config_window_base.cpp \
     cupcake_war.cpp \
     mlist.cpp \
-    clock_game.cpp
+    clock_game.cpp \
+    order_of_operations.cpp
 
 QT += \
     widgets
