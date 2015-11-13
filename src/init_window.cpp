@@ -52,6 +52,11 @@ void InitWindow::EnterSelectedConfig() {
             order_of_operations->show();
             break;
         }
+        case PREFIX_PAGODA: {
+            ConfigWindowBase* prefix_pagoda = new PrefixPogoda(this);
+            prefix_pagoda->show();
+            break;
+        }
 
         default: {
             QMessageBox::warning(this, "Message", game_list->itemText(selected_game),

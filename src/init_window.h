@@ -6,6 +6,7 @@
 #include "cupcake_war.h"
 #include "clock_game.h"
 #include "order_of_operations.h"
+#include "prefix_pogoda.h"
 
 class InitWindow : public QMainWindow
 {

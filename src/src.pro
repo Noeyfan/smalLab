@@ -6,7 +6,8 @@ HEADERS += \
     cupcake_war.h \
     mlist.h \
     clock_game.h \
-    order_of_operations.h
+    order_of_operations.h \
+    prefix_pogoda.h
 
 SOURCES += \
     init_window.cpp \
@@ -16,7 +17,8 @@ SOURCES += \
     cupcake_war.cpp \
     mlist.cpp \
     clock_game.cpp \
-    order_of_operations.cpp
+    order_of_operations.cpp \
+    prefix_pogoda.cpp
 
 QT += \
     widgets
@@ -27,4 +29,5 @@ CONFIG += \
 QMAKE_MAC_SDK = macosx10.11
 
 FORMS += \
-    order_of_operations.ui
+    order_of_operations.ui \
+    prefix_pogoda.ui
