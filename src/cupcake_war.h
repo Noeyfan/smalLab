@@ -16,12 +16,13 @@ public:
 
 private:
     // data
-    std::vector<QString> nutritions = {"Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D", "Vitamin E"};
+    std::vector<QString> nutritions = {"Grape", "Kiwi", "Orange", "Pineapple", "Raspberry", "Straberry"};
     std::vector<std::vector<std::pair<bool, float>>> levels;
+    std::vector<int> other_attr_val;
 
     //ui
     std::vector<std::pair<QCheckBox*, QLineEdit*>> selection;
-    MList* list_view;
+    std::vector<QLineEdit*> other_attr;
 
 signals:
 
@@ -33,8 +34,7 @@ public slots:
     }
 
 private slots:
-    void Update(QModelIndex qmi) {
-        int idx = qmi.row();
+    void Update(int idx) {
         for (int i = 0; i < nutritions.size(); ++i) {
             //qDebug() << "idx is: " << idx;
             selection[i].first->setChecked(levels[idx][i].first);
@@ -42,16 +42,22 @@ private slots:
             qDebug() << "value is: " << val;
             selection[i].second->setText(QString::number(val));
         }
+
+        for(int i = 0; i < 4; ++i) {
+            other_attr[i]->setText(QString::number(other_attr_val[i]));
+        }
     }
 
     void SetVal() {
         if (levels.empty()) return;
-        int idx = list_view->currentIndex();
-        qDebug() << "SetVal() for idx:" << idx;
         for (int i = 0; i < nutritions.size(); ++i) {
             float num =  selection[i].second->text().toFloat();
             bool checked = selection[i].first->isChecked();
-            levels[idx][i] = std::make_pair(checked, num);
+            levels[0][i] = std::make_pair(checked, num);
+        }
+
+        for(int i = 0; i < 4; ++i) {
+            other_attr_val[i] = other_attr[i]->text().toInt();
         }
     }
 };
