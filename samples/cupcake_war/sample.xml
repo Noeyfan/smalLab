@@ -2,22 +2,12 @@
 <CupcakeWar>
     <levelList>
         <level>
-            <item index="0" value="1.1"/>
-            <item index="1" value="2.2"/>
-        </level>
-        <level>
-            <item index="1" value="7.7"/>
-            <item index="2" value="0.8"/>
-            <item index="4" value="1.2"/>
-        </level>
-        <level>
-            <item index="1" value="3.5"/>
-            <item index="2" value="4.5"/>
-            <item index="3" value="5.5"/>
-        </level>
-        <level>
-            <item index="2" value="8.8"/>
-            <item index="3" value="6.6"/>
+            <item value="4" index="0"/>
+            <item value="5" index="2"/>
+            <item value="6" index="3"/>
+            <item value="7" index="5"/>
+            <singleTermRange max="50" min="10"/>
+            <level1 flour="48" milk="35"/>
         </level>
     </levelList>
 </CupcakeWar>
