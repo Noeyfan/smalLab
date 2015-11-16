@@ -8,6 +8,11 @@ namespace Ui {
 class PrefixPogoda;
 }
 
+struct Words {
+    int prefix_id, root_id, suffix_id;
+    QString word, desc;
+};
+
 class PrefixPogoda : public ConfigWindowBase
 {
     Q_OBJECT
@@ -20,8 +25,23 @@ public:
     void WriteXmlFileImp(QString);
     bool CheckEmpty();
 
+private slots:
+    void on_affix_add_pressed();
+
+    void on_affix_update_clicked();
+
 private:
+    void affix_add_helper(int, QString);
+
     Ui::PrefixPogoda *ui;
+
+    std::vector<std::pair<QString, QString>> prefixs;
+    std::vector<std::pair<QString, QString>> roots;
+    std::vector<std::pair<QString, QString>> suffixs;
+    std::vector<Words> words;
+
+    std::vector<std::pair<QStringList, QStringListModel*>> affix_lists;
+    std::pair<QStringList, QStringListModel*> word_list;
 };
 
 #endif // PREFIX_POGODA_H

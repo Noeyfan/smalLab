@@ -46,10 +46,10 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
-         <widget class="QLineEdit" name="lineEdit_3"/>
+         <widget class="QLineEdit" name="word_input"/>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_4"/>
+         <widget class="QLineEdit" name="word_des"/>
         </item>
        </layout>
       </item>
@@ -83,40 +83,34 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_7">
       <item>
-       <widget class="QComboBox" name="comboBox_2"/>
+       <widget class="QComboBox" name="word_prefix"/>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox_3"/>
+       <widget class="QComboBox" name="word_root"/>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox_4"/>
+       <widget class="QComboBox" name="word_suffix"/>
       </item>
      </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="word_add">
         <property name="text">
          <string>Add</string>
         </property>
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+       <widget class="QPushButton" name="word_update">
+        <property name="text">
+         <string>Update</string>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
+       </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="word_delete">
         <property name="text">
          <string>Delete</string>
         </property>
@@ -125,7 +119,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QListView" name="listView_4"/>
+     <widget class="QListView" name="word_list"/>
     </item>
    </layout>
   </widget>
@@ -167,13 +161,13 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="affix_input"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2"/>
+       <widget class="QLineEdit" name="affix_des"/>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QComboBox" name="affix_type">
         <item>
          <property name="text">
           <string>Prefix</string>
@@ -196,27 +190,21 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="affix_add">
         <property name="text">
          <string>Add</string>
         </property>
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+       <widget class="QPushButton" name="affix_update">
+        <property name="text">
+         <string>Update</string>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
+       </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="affix_delete">
         <property name="text">
          <string>Delete</string>
         </property>
@@ -252,13 +240,13 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QListView" name="listView"/>
+       <widget class="QListView" name="prefix_list"/>
       </item>
       <item>
-       <widget class="QListView" name="listView_2"/>
+       <widget class="QListView" name="root_list"/>
       </item>
       <item>
-       <widget class="QListView" name="listView_3"/>
+       <widget class="QListView" name="suffix_list"/>
       </item>
      </layout>
     </item>
