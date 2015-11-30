@@ -25,6 +25,8 @@
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QTextEdit>
+#include <unordered_map>
+#include <cassert>
 
 // Main Game List
 enum GameList {
@@ -97,6 +99,12 @@ public:
             if (this->name() != gamename) {
                 QMessageBox::warning(cur_window, "Message", "Wrong config file",QMessageBox::Ok);
             }
+        }
+    }
+
+    ~XmlFileReader() {
+        if (this->hasError()) {
+            qDebug(this->errorString().toLatin1());
         }
     }
 };

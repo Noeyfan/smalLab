@@ -11,6 +11,9 @@ class PrefixPogoda;
 struct Words {
     int prefix_id, root_id, suffix_id;
     QString word, desc;
+
+    Words(int p, int r, int s, QString w, QString d)
+    : prefix_id(p), root_id(r), suffix_id(s), word(w), desc(d) { }
 };
 
 class PrefixPogoda : public ConfigWindowBase
@@ -30,8 +33,24 @@ private slots:
 
     void on_affix_update_clicked();
 
+    void on_word_add_pressed();
+
+    void on_word_update_pressed();
+
+    void on_word_delete_pressed();
+
+    void on_word_list_clicked(const QModelIndex &index);
+
+    void on_prefix_list_clicked(const QModelIndex &index);
+
+    void on_root_list_clicked(const QModelIndex &index);
+
+    void on_suffix_list_clicked(const QModelIndex &index);
+
 private:
     void affix_add_helper(int, QString);
+    QString removeSemi(QString);
+    std::pair<int,int> get_pos(QString);
 
     Ui::PrefixPogoda *ui;
 

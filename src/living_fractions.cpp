@@ -141,10 +141,6 @@ void LivingFractions:: ReadXmlFileImp(QString filename) {
     highest_denominator_txt->setText(QString::number(highest_denominator));
 
     model->setStringList(strlist);
-
-    if (rxml.hasError()) {
-        qDebug(rxml.errorString().toLatin1());
-    }
 }
 
 void LivingFractions::WriteXmlFileImp(QString filename) {
