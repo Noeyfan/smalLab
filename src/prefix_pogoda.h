@@ -27,11 +27,10 @@ public:
     void ReadXmlFileImp(QString);
     void WriteXmlFileImp(QString);
     bool CheckEmpty();
+    QString HelpImp();
 
 private slots:
     void on_affix_add_pressed();
-
-    void on_affix_update_clicked();
 
     void on_word_add_pressed();
 
@@ -47,6 +46,10 @@ private slots:
 
     void on_suffix_list_clicked(const QModelIndex &index);
 
+    void on_prefix_list_activated(const QModelIndex &index);
+
+    void on_affix_delete_clicked();
+
 private:
     void affix_add_helper(int, QString);
     QString removeSemi(QString);
@@ -61,6 +64,8 @@ private:
 
     std::vector<std::pair<QStringList, QStringListModel*>> affix_lists;
     std::pair<QStringList, QStringListModel*> word_list;
+
+    int delete_cur_type = -1, delete_cur_idx = -1;
 };
 
 #endif // PREFIX_POGODA_H

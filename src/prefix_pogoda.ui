@@ -197,13 +197,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="affix_update">
-        <property name="text">
-         <string>Update</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="affix_delete">
         <property name="text">
          <string>Delete</string>
