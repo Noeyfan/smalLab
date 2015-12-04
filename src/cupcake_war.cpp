@@ -2,11 +2,11 @@
 
 CupcakeWar::CupcakeWar(QWidget* parent)
     : ConfigWindowBase(parent),
+      nutritions({"Grape", "Kiwi", "Orange", "Pineapple", "Raspberry", "Straberry"}),
       other_attr_val(4, 0)
 {
-    nutritions = {"Grape", "Kiwi", "Orange", "Pineapple", "Raspberry", "Straberry"};
     add_level();
-    for (int i = 0; i < nutritions.size(); ++i) {
+    for (int i = 0; i < (int)nutritions.size(); ++i) {
         QCheckBox* qcb = new QCheckBox(nutritions[i], this);
         QLineEdit* txt = new QLineEdit(this);
         qcb->move(400, 100 + i * 40);
@@ -40,7 +40,6 @@ void CupcakeWar::ReadXmlFileImp(QString filename) {
 
     // Clear List before load from File
     levels.clear();
-    selection.clear();
     rxml.readNextStartElement();
 
     while (!rxml.atEnd()) {
@@ -91,9 +90,9 @@ void CupcakeWar::WriteXmlFileImp(QString filename) {
     wxml.writeStartElement("levelList");
     //for (const auto& ele : levels) {
     qDebug() << levels.size();
-    for (int i = 0; i < levels.size(); ++i) {
+    for (int i = 0; i < (int)levels.size(); ++i) {
         wxml.writeStartElement("level");
-        for (int j = 0; j < levels[i].size(); ++j) {
+        for (int j = 0; j < (int)levels[i].size(); ++j) {
             if (!levels[i][j].first) continue;
             wxml.writeStartElement("item");
             wxml.writeAttribute("value", QString::number(levels[i][j].second));
