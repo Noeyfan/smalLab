@@ -194,7 +194,7 @@ void PrefixPogoda::WriteXmlFileImp(QString filename) {
 }
 
 bool PrefixPogoda::CheckEmpty() {
-
+    return false;
 }
 
 void PrefixPogoda::on_affix_add_pressed()

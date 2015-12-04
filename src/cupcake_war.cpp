@@ -4,8 +4,8 @@ CupcakeWar::CupcakeWar(QWidget* parent)
     : ConfigWindowBase(parent),
       other_attr_val(4, 0)
 {
-    add_level();
     nutritions = {"Grape", "Kiwi", "Orange", "Pineapple", "Raspberry", "Straberry"};
+    add_level();
     for (int i = 0; i < nutritions.size(); ++i) {
         QCheckBox* qcb = new QCheckBox(nutritions[i], this);
         QLineEdit* txt = new QLineEdit(this);
@@ -116,4 +116,5 @@ void CupcakeWar::WriteXmlFileImp(QString filename) {
 }
 
 bool CupcakeWar::CheckEmpty() {
+    return false;
 }
