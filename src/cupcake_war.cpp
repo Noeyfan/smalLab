@@ -5,6 +5,7 @@ CupcakeWar::CupcakeWar(QWidget* parent)
       other_attr_val(4, 0)
 {
     add_level();
+    nutritions = {"Grape", "Kiwi", "Orange", "Pineapple", "Raspberry", "Straberry"};
     for (int i = 0; i < nutritions.size(); ++i) {
         QCheckBox* qcb = new QCheckBox(nutritions[i], this);
         QLineEdit* txt = new QLineEdit(this);

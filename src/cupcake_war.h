@@ -16,7 +16,7 @@ public:
 
 private:
     // data
-    std::vector<QString> nutritions = {"Grape", "Kiwi", "Orange", "Pineapple", "Raspberry", "Straberry"};
+    std::vector<QString> nutritions;
     std::vector<std::vector<std::pair<bool, float>>> levels;
     std::vector<int> other_attr_val;
 

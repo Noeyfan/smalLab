@@ -21,7 +21,7 @@ MList::MList(QWidget *parent, QString name) : QListView(parent), list_view_label
     connect(rid, SIGNAL(pressed()), this, SLOT(remove_levels()));
 }
 
-auto MList::selectionModel() -> decltype(QListView::selectionModel()){
+QItemSelectionModel* MList::selectionModel() {
     return QListView::selectionModel();
 }
 

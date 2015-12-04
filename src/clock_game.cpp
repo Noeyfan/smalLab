@@ -1,6 +1,6 @@
 #include "clock_game.h"
 
-ClockGame::ClockGame(QWidget *parent) : ConfigWindowBase(parent), list_view(new MList(this)) {
+ClockGame::ClockGame(QWidget *parent) : ConfigWindowBase(parent), list_view(new MList(this)), am_pm({"blank", "am", "pm"}) {
     QLabel *label1 = new QLabel("start hour", this);
     QLabel *label2 = new QLabel("start minute", this);
     QLabel *label3 = new QLabel("start am/pm", this);

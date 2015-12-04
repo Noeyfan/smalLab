@@ -27,6 +27,7 @@
 #include <QTextEdit>
 #include <unordered_map>
 #include <cassert>
+#include <functional>
 
 // Main Game List
 enum GameList {

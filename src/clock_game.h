@@ -22,7 +22,7 @@ public:
 
 private:
     std::vector<_CG_LevelElement> levels;
-    QStringList am_pm = {"blank", "am", "pm"};
+    QStringList am_pm;
 
     MList* list_view;
     QLineEdit* start_hour, *start_minute, *end_hour, *end_minute, *duration_hour, *duration_minute;
