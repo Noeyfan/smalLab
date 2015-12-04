@@ -57,6 +57,11 @@ void InitWindow::EnterSelectedConfig() {
             prefix_pagoda->show();
             break;
         }
+        case TEACHING_TOOL: {
+            ConfigWindowBase* teaching_tool = new TeachingTool(this);
+            teaching_tool->show();
+            break;
+        }
 
         default: {
             QMessageBox::warning(this, "Message", game_list->itemText(selected_game),

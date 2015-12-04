@@ -7,6 +7,7 @@
 #include "clock_game.h"
 #include "order_of_operations.h"
 #include "prefix_pogoda.h"
+#include "teaching_tool.h"
 
 class InitWindow : public QMainWindow
 {

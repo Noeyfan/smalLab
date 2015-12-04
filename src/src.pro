@@ -7,7 +7,8 @@ HEADERS += \
     mlist.h \
     clock_game.h \
     order_of_operations.h \
-    prefix_pogoda.h
+    prefix_pogoda.h \
+    teaching_tool.h
 
 SOURCES += \
     init_window.cpp \
@@ -18,7 +19,8 @@ SOURCES += \
     mlist.cpp \
     clock_game.cpp \
     order_of_operations.cpp \
-    prefix_pogoda.cpp
+    prefix_pogoda.cpp \
+    teaching_tool.cpp
 
 QT += \
     widgets
@@ -30,4 +32,5 @@ QMAKE_MAC_SDK = macosx10.11
 
 FORMS += \
     order_of_operations.ui \
-    prefix_pogoda.ui
+    prefix_pogoda.ui \
+    teaching_tool.ui
