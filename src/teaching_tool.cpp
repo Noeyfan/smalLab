@@ -37,11 +37,6 @@ void TeachingTool::on_load_button_clicked()
                                                          QStandardPaths::LocateDirectory),
                                                      tr("image Files (*.jpg *.png *.gif *.tiff *.jpeg)"));
     ui->img_path_input->setText(file_name);
-#ifdef Q_OS_MAC
     auto sep = file_name.split('/');
-#else
-    auto sep = file_name.split('\');
-#endif
-
     ui->img_name_input->setText(sep[sep.size() - 1]);
 }
