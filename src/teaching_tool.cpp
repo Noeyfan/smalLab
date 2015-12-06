@@ -15,8 +15,39 @@ TeachingTool::~TeachingTool()
     delete ui;
 }
 
-void TeachingTool::ReadXmlFileImp(QString) {
+void TeachingTool::ReadXmlFileImp(QString filename) {
+    XmlFileReader rxml(filename, "ToolCustomization", this);
+    levels.clear();
+    level_list.first.clear();
+    clean_inputs();
 
+    rxml.readNextStartElement();
+    while(!rxml.atEnd()) {
+        rxml.readNext();
+        if(rxml.isStartElement() && rxml.name() == "level") {
+            rxml.readNextStartElement();
+            TT_Ele te;
+            te.imagepath = rxml.readElementText();
+            rxml.readNextStartElement();
+            te.imagename = rxml.readElementText();
+            rxml.readNextStartElement();
+            te.soi = rxml.readElementText().toInt();
+            rxml.readNextStartElement();
+            te.textcontent = rxml.readElementText();
+            rxml.readNextStartElement();
+            te.sot = rxml.readElementText().toInt();
+            rxml.readNextStartElement();
+            te.videoname = rxml.readElementText();
+            rxml.readNextStartElement();
+            te.videourl = rxml.readElementText();
+            rxml.readNextStartElement();
+            te.sov = rxml.readElementText().toInt();
+            rxml.readNextStartElement();
+            levels.push_back(te);
+            level_list.first << te.imagename;
+        }
+    }
+    level_list.second->setStringList(level_list.first);
 }
 
 void TeachingTool::WriteXmlFileImp(QString filename) {
@@ -59,6 +90,7 @@ bool TeachingTool::CheckEmpty() {
 }
 
 QString TeachingTool::HelpImp() {
+    return "help";
 }
 
 void TeachingTool::on_load_button_clicked()
@@ -83,12 +115,7 @@ void TeachingTool::on_pushButton_2_clicked()
                         ui->soi->text().toInt(), ui->sot->text().toInt(), ui->sov->text().toInt());
     level_list.first << ui->img_name_input->text();
     level_list.second->setStringList(level_list.first);
-    ui->img_path_input->clear(); ui->img_name_input->clear();
-    ui->text_content_input->clear(); ui->video_url_input->clear();
-    ui->video_name_input->clear();
-    ui->soi->clear();
-    ui->sot->clear();
-    ui->sov->clear();
+    clean_inputs();
 }
 
 void TeachingTool::on_levels_clicked(const QModelIndex &index)
@@ -111,12 +138,7 @@ void TeachingTool::on_pushButton_clicked()
     levels[idx] = TT_Ele(ui->img_path_input->text(), ui->img_name_input->text(),
                          ui->text_content_input->text(), ui->video_name_input->text(), ui->video_url_input->text(),
                          ui->soi->text().toInt(), ui->sot->text().toInt(), ui->sov->text().toInt());
-    ui->img_path_input->clear(); ui->img_name_input->clear();
-    ui->text_content_input->clear(); ui->video_url_input->clear();
-    ui->video_name_input->clear();
-    ui->soi->clear();
-    ui->sot->clear();
-    ui->sov->clear();
+    clean_inputs();
 }
 
 void TeachingTool::on_pushButton_3_clicked()
@@ -126,6 +148,11 @@ void TeachingTool::on_pushButton_3_clicked()
     levels.erase(levels.begin() + idx);
     level_list.first.erase(level_list.first.begin() + idx);
     level_list.second->setStringList(level_list.first);
+    clean_inputs();
+}
+
+void TeachingTool::clean_inputs()
+{
     ui->img_path_input->clear(); ui->img_name_input->clear();
     ui->text_content_input->clear(); ui->video_url_input->clear();
     ui->video_name_input->clear();

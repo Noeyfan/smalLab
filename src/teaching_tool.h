@@ -9,6 +9,7 @@ class TeachingTool;
 }
 
 struct TT_Ele {
+    TT_Ele() = default;
     TT_Ele(QString ip, QString in, const QString& tc, QString vn, QString vu, int a, int b, int c)
         : imagepath(ip), imagename(in), textcontent(tc), videoname(vn), videourl(vu),
           soi(a), sot(b), sov(c){ }
@@ -42,6 +43,8 @@ private slots:
     void on_pushButton_3_clicked();
 
 private:
+    void clean_inputs();
+
     Ui::TeachingTool *ui;
     std::vector<TT_Ele> levels;
     std::pair<QStringList, QStringListModel*> level_list;
