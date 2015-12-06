@@ -382,5 +382,5 @@ QString PrefixPogoda::HelpImp() {
             "2. The word should be separate by ';' in terms of how it can be separated (e.g. \"reaction\" should be typed in as \"re;act;ion\")\n"
             "3. Try not to detete any affixs after you have build words, because it will break the dependency between affixs and words\n";
 
-    return str;
+    return std::move(str);
 }

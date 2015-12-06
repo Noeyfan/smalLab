@@ -90,7 +90,12 @@ bool TeachingTool::CheckEmpty() {
 }
 
 QString TeachingTool::HelpImp() {
-    return "help";
+    return "1. Use the load button to select file from you PC \n"
+           "2. After you fill in all the information on the right side, you can click add to add one level to the level list\n"
+           "3. You can select a level from level list and change the content, then click update to update the data\n"
+           "4. Select a level and use delete button to remove it from level list\n"
+           "5. If you want to clean the content you already fill on the right side, you can select any level and click update\n"
+           "6. Scene number of image/vide/text should be filled in a number, others can be filled with any text";
 }
 
 void TeachingTool::on_load_button_clicked()
