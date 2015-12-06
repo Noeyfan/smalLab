@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>80</y>
+     <y>70</y>
      <width>272</width>
-     <height>233</height>
+     <height>308</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -42,7 +42,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Name</string>
+         <string>Name of image</string>
         </property>
        </widget>
       </item>
@@ -61,7 +61,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_3"/>
+       <widget class="QLineEdit" name="soi"/>
       </item>
      </layout>
     </item>
@@ -75,7 +75,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_4"/>
+       <widget class="QLineEdit" name="text_content_input"/>
       </item>
      </layout>
     </item>
@@ -89,7 +89,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_5"/>
+       <widget class="QLineEdit" name="sot"/>
       </item>
      </layout>
     </item>
@@ -103,7 +103,21 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_6"/>
+       <widget class="QLineEdit" name="video_url_input"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>video name:   </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="video_name_input"/>
       </item>
      </layout>
     </item>
@@ -117,7 +131,32 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_7"/>
+       <widget class="QLineEdit" name="sov"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_9">
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>update</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -127,9 +166,9 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>60</y>
+     <y>50</y>
      <width>171</width>
-     <height>281</height>
+     <height>321</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -141,43 +180,10 @@
      </widget>
     </item>
     <item>
-     <widget class="QListView" name="listView"/>
+     <widget class="QListView" name="levels"/>
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>320</y>
-     <width>113</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_3">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>320</y>
-     <width>113</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Delete</string>
-   </property>
-  </widget>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_4</zorder>
-  <zorder>verticalLayoutWidget_2</zorder>
-  <zorder>label_7</zorder>
-  <zorder>pushButton_2</zorder>
-  <zorder>pushButton_3</zorder>
  </widget>
  <resources/>
  <connections/>
