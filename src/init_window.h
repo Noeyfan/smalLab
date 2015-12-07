@@ -8,6 +8,7 @@
 #include "order_of_operations.h"
 #include "prefix_pogoda.h"
 #include "teaching_tool.h"
+#include "reading_game.h"
 
 class InitWindow : public QMainWindow
 {

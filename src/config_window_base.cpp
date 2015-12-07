@@ -13,13 +13,13 @@ ConfigWindowBase::ConfigWindowBase(QWidget *parent) : QMainWindow(parent), valid
     // Draw 2 Line, should really use Qt designer
     QFrame* line = new QFrame(this);
     line->setObjectName(QString::fromUtf8("line"));
-    line->setGeometry(QRect(0, 50, 700, 3));
+    line->setGeometry(QRect(0, 50, 1000, 3));
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
 
     QFrame* line2 = new QFrame(this);
     line2->setObjectName(QString::fromUtf8("line"));
-    line2->setGeometry(QRect(0, 400, 700, 3));
+    line2->setGeometry(QRect(0, 400, 1000, 3));
     line2->setFrameShape(QFrame::HLine);
     line2->setFrameShadow(QFrame::Sunken);
 

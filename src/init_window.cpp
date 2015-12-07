@@ -62,6 +62,11 @@ void InitWindow::EnterSelectedConfig() {
             teaching_tool->show();
             break;
         }
+        case READING_GAME: {
+            ConfigWindowBase* reading_game = new ReadingGame(this);
+            reading_game->show();
+            break;
+        }
 
         default: {
             QMessageBox::warning(this, "Message", game_list->itemText(selected_game),
