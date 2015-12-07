@@ -35,7 +35,7 @@ CupcakeWar::CupcakeWar(QWidget* parent)
     QLabel *name = new QLabel("grade", this);
     name->move(100, 100 + 4 * 40);
     grade->move(200, 100 + 4 * 40);
-    grade->addItems({"1", "2", "3"});
+    grade->addItems({"3", "4", "5", "6", "7", "8"});
 
     // connect(list_view, SIGNAL(level_added()), this, SLOT(add_level()));
     // connect(list_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(Update(QModelIndex)));
@@ -55,7 +55,7 @@ void CupcakeWar::ReadXmlFileImp(QString filename) {
             std::vector<std::pair<bool, float>> item(nutritions.size(), {false, 0});
             while (rxml.name() != "level") {
                 if (rxml.name() == "grade") {
-                    this->grade->setCurrentIndex(rxml.attributes().value("grade").toInt() - 1);
+                    this->grade->setCurrentIndex(rxml.attributes().value("grade").toInt() - 3);
                     rxml.readNext();
                 }
 
@@ -104,7 +104,7 @@ void CupcakeWar::WriteXmlFileImp(QString filename) {
     for (int i = 0; i < (int)levels.size(); ++i) {
         wxml.writeStartElement("level");
         wxml.writeStartElement("grade");
-        wxml.writeAttribute("grade", QString::number(grade->currentIndex() + 1));
+        wxml.writeAttribute("grade", QString::number(grade->currentIndex() + 3));
         wxml.writeEndElement();
         for (int j = 0; j < (int)levels[i].size(); ++j) {
             if (!levels[i][j].first) continue;
