@@ -31,6 +31,12 @@ CupcakeWar::CupcakeWar(QWidget* parent)
         connect(txt, SIGNAL(editingFinished()), this, SLOT(SetVal()));
     }
 
+    grade = new QComboBox(this);
+    QLabel *name = new QLabel("grade", this);
+    name->move(100, 100 + 4 * 40);
+    grade->move(200, 100 + 4 * 40);
+    grade->addItems({"1", "2", "3"});
+
     // connect(list_view, SIGNAL(level_added()), this, SLOT(add_level()));
     // connect(list_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(Update(QModelIndex)));
 }
@@ -48,6 +54,11 @@ void CupcakeWar::ReadXmlFileImp(QString filename) {
             rxml.readNext();
             std::vector<std::pair<bool, float>> item(nutritions.size(), {false, 0});
             while (rxml.name() != "level") {
+                if (rxml.name() == "grade") {
+                    this->grade->setCurrentIndex(rxml.attributes().value("grade").toInt() - 1);
+                    rxml.readNext();
+                }
+
                 if (rxml.name() == "item") {
                     // qDebug() << rxml.attributes().value("index") << rxml.attributes().value("value");
                     item[rxml.attributes().value("index").toInt()] =
@@ -92,6 +103,9 @@ void CupcakeWar::WriteXmlFileImp(QString filename) {
     qDebug() << levels.size();
     for (int i = 0; i < (int)levels.size(); ++i) {
         wxml.writeStartElement("level");
+        wxml.writeStartElement("grade");
+        wxml.writeAttribute("grade", QString::number(grade->currentIndex() + 1));
+        wxml.writeEndElement();
         for (int j = 0; j < (int)levels[i].size(); ++j) {
             if (!levels[i][j].first) continue;
             wxml.writeStartElement("item");

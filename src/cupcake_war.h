@@ -23,6 +23,7 @@ private:
     //ui
     std::vector<std::pair<QCheckBox*, QLineEdit*>> selection;
     std::vector<QLineEdit*> other_attr;
+    QComboBox* grade;
 
 signals:
 
