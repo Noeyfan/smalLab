@@ -25,8 +25,19 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_levels_activated(const QModelIndex &index);
+
+    void on_levels_clicked(const QModelIndex &index);
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
 private:
+    void clear_inputs();
+
     Ui::ReadingGame *ui;
+    std::pair<QStringList, QStringListModel*> level_list;
     std::vector<std::vector<std::pair<QString, QString>>> levels;
 };
 

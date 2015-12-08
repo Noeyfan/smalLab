@@ -161,7 +161,7 @@
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="2" column="3">
-      <widget class="QLineEdit" name="lineEdit_23"/>
+      <widget class="QLineEdit" name="ld3"/>
      </item>
      <item row="1" column="8">
       <widget class="QLineEdit" name="ls8"/>
@@ -177,10 +177,10 @@
       <widget class="QLineEdit" name="ls10"/>
      </item>
      <item row="2" column="5">
-      <widget class="QLineEdit" name="lineEdit_25"/>
+      <widget class="QLineEdit" name="ld5"/>
      </item>
      <item row="2" column="6">
-      <widget class="QLineEdit" name="lineEdit_26"/>
+      <widget class="QLineEdit" name="ld6"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_21">
@@ -190,16 +190,16 @@
       </widget>
      </item>
      <item row="2" column="9">
-      <widget class="QLineEdit" name="lineEdit_29"/>
+      <widget class="QLineEdit" name="ld9"/>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_21"/>
+      <widget class="QLineEdit" name="ld1"/>
      </item>
      <item row="2" column="4">
-      <widget class="QLineEdit" name="lineEdit_24"/>
+      <widget class="QLineEdit" name="ld4"/>
      </item>
      <item row="2" column="8">
-      <widget class="QLineEdit" name="lineEdit_28"/>
+      <widget class="QLineEdit" name="ld8"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_22">
@@ -209,7 +209,7 @@
       </widget>
      </item>
      <item row="2" column="7">
-      <widget class="QLineEdit" name="lineEdit_27"/>
+      <widget class="QLineEdit" name="ld7"/>
      </item>
      <item row="0" column="9">
       <widget class="QLabel" name="label_12">
@@ -299,42 +299,30 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLineEdit" name="lineEdit_22"/>
+      <widget class="QLineEdit" name="ld2"/>
      </item>
      <item row="2" column="10">
-      <widget class="QLineEdit" name="lineEdit_30"/>
+      <widget class="QLineEdit" name="ld10"/>
      </item>
     </layout>
    </widget>
-   <zorder>gridLayoutWidget_2</zorder>
-   <zorder>gridLayoutWidget_2</zorder>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>380</x>
      <y>270</y>
-     <width>251</width>
+     <width>291</width>
      <height>121</height>
     </rect>
    </property>
    <property name="title">
     <string>Saved Levels</string>
    </property>
-   <widget class="QListWidget" name="listWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>71</width>
-      <height>91</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>160</x>
       <y>20</y>
       <width>101</width>
       <height>32</height>
@@ -347,7 +335,7 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>160</x>
       <y>50</y>
       <width>101</width>
       <height>32</height>
@@ -360,7 +348,7 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>160</x>
       <y>80</y>
       <width>101</width>
       <height>32</height>
@@ -368,6 +356,16 @@
     </property>
     <property name="text">
      <string>Delete</string>
+    </property>
+   </widget>
+   <widget class="QListView" name="levels">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>71</width>
+      <height>91</height>
+     </rect>
     </property>
    </widget>
   </widget>
