@@ -86,7 +86,7 @@ void TeachingTool::WriteXmlFileImp(QString filename) {
 }
 
 bool TeachingTool::CheckEmpty() {
-
+    return true;
 }
 
 QString TeachingTool::HelpImp() {

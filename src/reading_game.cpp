@@ -107,7 +107,7 @@ void ReadingGame::WriteXmlFileImp(QString filename) {
 }
 
 bool ReadingGame::CheckEmpty() {
-
+    return true;
 }
 
 QString ReadingGame::HelpImp() {

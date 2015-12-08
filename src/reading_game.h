@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "config_window_base.h"
-#include "util.h"
+#include "utility.h"
 
 namespace Ui {
 class ReadingGame;
