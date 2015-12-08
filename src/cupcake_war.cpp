@@ -93,6 +93,24 @@ void CupcakeWar::ReadXmlFileImp(QString filename) {
 }
 
 void CupcakeWar::WriteXmlFileImp(QString filename) {
+    // check non Zero
+    bool other = true;
+    for(const auto& ele : other_attr_val) {
+        other = ele && other;
+    }
+
+    qDebug() << other;
+
+    for(const auto& ele : levels[0]) {
+        if(ele.first && !ele.second || !other) {
+            QMessageBox::warning(this, "Error", "Please make sure you filled in the correct number,"
+                                                "none of the number should be 0",
+                                 QMessageBox::Ok);
+            return;
+        }
+    }
+
+
     SetVal();
     XmlFileWriter wxml(filename);
     wxml.setAutoFormatting(true);
@@ -130,4 +148,13 @@ void CupcakeWar::WriteXmlFileImp(QString filename) {
 
 bool CupcakeWar::CheckEmpty() {
     return false;
+}
+
+QString CupcakeWar::HelpImp() {
+    return "1. flour amount is the total amount of flour, which should be dividable by 6\n"
+           "2. milk amount is the total amount of milk, which should be dividable by 5\n"
+           "3. the max/min represent { min <= Fruit * Number <= max } for any multiplication of Fruit and Number."
+           "4. max and min should not be 0, the ideal value should be min = 5 ~ 10, max = 30 ~ 50"
+           "5. grade is only need for recording the result of the game"
+           "6. On the right side, select the fruit you need and fill in the number of each fruit(should not be 0).";
 }

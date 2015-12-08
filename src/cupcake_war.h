@@ -13,6 +13,7 @@ public:
 
     void ReadXmlFileImp(QString);
     void WriteXmlFileImp(QString);
+    QString HelpImp();
 
 private:
     // data
