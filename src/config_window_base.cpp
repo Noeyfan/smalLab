@@ -3,8 +3,8 @@
 ConfigWindowBase::ConfigWindowBase(QWidget *parent) : QMainWindow(parent), validator(new QRegExpValidator(QRegExp("^[0-9]*(.)*[0-9]+$"),this))
 {
     this->setFixedSize(700, 450);
-    open_button = new QPushButton("open file", this);
-    save_button = new QPushButton("save file", this);
+    open_button = new QPushButton("Load XML", this);
+    save_button = new QPushButton("Export XML", this);
     help_button = new QPushButton("help", this);
     open_button->move(200, 10);
     save_button->move(400, 10);

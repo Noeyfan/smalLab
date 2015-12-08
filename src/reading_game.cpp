@@ -111,7 +111,11 @@ bool ReadingGame::CheckEmpty() {
 }
 
 QString ReadingGame::HelpImp() {
-
+    return "1. The example word is the word that shows in the thinking cloud. It is used for kids to sort words based on the it.\n"
+           "2. Put the words you want the kids to pick in the Similar Word column, put the words they should not choose at the "
+           "Different Word column, based on the number matching with the Example word at the top\n"
+           "3. You can put any amount lists less than 10, the only thing you need to keep in mind "
+           "is to match the amount the example words with number of the lists you use.\n";
 }
 
 void ReadingGame::on_pushButton_clicked()

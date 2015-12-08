@@ -153,8 +153,8 @@ bool CupcakeWar::CheckEmpty() {
 QString CupcakeWar::HelpImp() {
     return "1. flour amount is the total amount of flour, which should be dividable by 6\n"
            "2. milk amount is the total amount of milk, which should be dividable by 5\n"
-           "3. the max/min represent { min <= Fruit * Number <= max } for any multiplication of Fruit and Number."
-           "4. max and min should not be 0, the ideal value should be min = 5 ~ 10, max = 30 ~ 50"
-           "5. grade is only need for recording the result of the game"
+           "3. the max/min represent { min <= Fruit * Number <= max } for any multiplication of Fruit and Number.\n"
+           "4. max and min should not be 0, the ideal value should be min = 5 ~ 10, max = 30 ~ 50\n"
+           "5. grade is only need for recording the result of the game\n"
            "6. On the right side, select the fruit you need and fill in the number of each fruit(should not be 0).";
 }

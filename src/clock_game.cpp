@@ -177,3 +177,12 @@ bool ClockGame::CheckEmpty() {
     }
     return false;
 }
+
+QString ClockGame::HelpImp() {
+    return "1. Fisrt Mode: If you just input the value for the START TIME column, "
+           "it will be the first mode. Give the digital time, and let the kids move the wand to the right place.\n"
+           "2. Second Mode: if you input two of the three values, "
+           "it would be the second mode, which you give either two of the three and let the kids figure out the left one.\n"
+           "3. Use the same file for the multiplayer "
+           "mode of the game. Questions for both team will be the same, so input content would be the same as the single player mode.";
+}

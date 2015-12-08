@@ -32,6 +32,7 @@ public:
     explicit LivingFractions(QWidget *parent = 0);
     void ReadXmlFileImp(QString filename);
     void WriteXmlFileImp(QString filename);
+    QString HelpImp();
 
 signals:
 

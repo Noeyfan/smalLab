@@ -200,3 +200,16 @@ bool LivingFractions::CheckEmpty() {
     }
     return false;
 }
+
+QString LivingFractions::HelpImp() {
+    return "1. Use the + / - button to add/delete an level,"
+           "then edit the level by selecting the leve you created, after finish all the editing, you can go ahead and export the xml file\n"
+           "2. Choose the highest denominator you want to divide the pie chart by.\n"
+           "It is recommended that you choose this based on the common fractions you want students to be able to create\n"
+           "1/8 * 1/3 = 1/24\n"
+           "1/8 * 1/3 * 1/5 = 1/120)\n"
+           "3. Every number on the pie chart can be represented through fractions, "
+           "decimals, percentages, or left blank, and these representations change from one level to the next.\n"
+           "4. Each Level needs at least one goal (in decimal), and a way to represent that goal\n"
+           "5. If the sum value is over 1, then your goals are unattainable.\n";
+}

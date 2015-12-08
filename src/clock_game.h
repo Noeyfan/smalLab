@@ -19,6 +19,7 @@ public:
 
     void ReadXmlFileImp(QString);
     void WriteXmlFileImp(QString);
+    QString HelpImp();
 
 private:
     std::vector<_CG_LevelElement> levels;

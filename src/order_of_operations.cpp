@@ -94,7 +94,7 @@ QString OrderOfOperations::HelpImp() {
                   "Difficulty level 3 --- Equations generated has +, -, *"
                   "and / operators as well as parentheses (2 parentheses at most)\n\n"
                   "Stage 2\n"
-                  "Input equations that you would like to appear in stage 2.\n"
+                  "Input equations that you would like to appear in stage2. \n"
                   "Add a space between each number and operator, as shown in the sample equation.\n"
                   "All operators will be substituted with blanks when they appear in stage 2.\n"
                   "Equations are randomly chosen for each team from the pool of equations given.\n"
