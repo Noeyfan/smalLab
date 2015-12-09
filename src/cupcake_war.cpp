@@ -94,6 +94,7 @@ void CupcakeWar::ReadXmlFileImp(QString filename) {
 
 void CupcakeWar::WriteXmlFileImp(QString filename) {
     // check non Zero
+    SetVal();
     bool other = true;
     for(const auto& ele : other_attr_val) {
         other = ele && other;
@@ -111,7 +112,6 @@ void CupcakeWar::WriteXmlFileImp(QString filename) {
     }
 
 
-    SetVal();
     XmlFileWriter wxml(filename);
     wxml.setAutoFormatting(true);
 
