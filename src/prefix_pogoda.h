@@ -12,6 +12,8 @@ struct Words {
     int prefix_id, root_id, suffix_id;
     QString word, desc;
 
+    Words() : prefix_id(0), root_id(0), suffix_id(0), word(""), desc("") { }
+
     Words(int p, int r, int s, QString w, QString d)
     : prefix_id(p), root_id(r), suffix_id(s), word(w), desc(d) { }
 };

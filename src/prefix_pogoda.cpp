@@ -183,9 +183,9 @@ void PrefixPogoda::WriteXmlFileImp(QString filename) {
         for(const auto& s : seg) {
             WriteCDataString("wordSegment", s);
         }
-        if(ele.prefix_id != -1) WriteCDataString("properRoot", prefixs[ele.prefix_id].first);
-        if(ele.root_id != -1) WriteCDataString("properRoot", roots[ele.root_id].first);
-        if(ele.suffix_id != -1) WriteCDataString("properRoot", suffixs[ele.suffix_id].first);
+        if(ele.prefix_id >= 0) WriteCDataString("properRoot", prefixs[ele.prefix_id].first);
+        if(ele.root_id >= 0) WriteCDataString("properRoot", roots[ele.root_id].first);
+        if(ele.suffix_id >= 0) WriteCDataString("properRoot", suffixs[ele.suffix_id].first);
         wxml.writeEndElement();
     }
     wxml.writeEndElement();
