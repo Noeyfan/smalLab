@@ -203,6 +203,11 @@ void PrefixPogoda::on_affix_add_pressed()
     if(ele.first == "" || ele.second =="") return;
     switch (ui->affix_type->currentIndex()) {
     case 0:
+        if(!checkDup(ele.first, prefixs)) {
+            QMessageBox::warning(this, "Error", "Duplicated affixes inserted",
+                                 QMessageBox::Ok);
+            return;
+        }
         prefixs.push_back(ele);
         affix_add_helper(0, ele.first);
         ui->word_prefix->clear();
@@ -210,6 +215,11 @@ void PrefixPogoda::on_affix_add_pressed()
         ui->word_prefix->addItems(affix_lists[0].first);
         break;
     case 1:
+        if(!checkDup(ele.first, roots)) {
+            QMessageBox::warning(this, "Error", "Duplicated affixes inserted",
+                                 QMessageBox::Ok);
+            return;
+        }
         roots.push_back(ele);
         affix_add_helper(1, ele.first);
         ui->word_root->clear();
@@ -217,6 +227,11 @@ void PrefixPogoda::on_affix_add_pressed()
         ui->word_root->addItems(affix_lists[1].first);
         break;
     case 2:
+        if(!checkDup(ele.first, suffixs)) {
+            QMessageBox::warning(this, "Error", "Duplicated affixes inserted",
+                                 QMessageBox::Ok);
+            return;
+        }
         suffixs.push_back(ele);
         affix_add_helper(2, ele.first);
         ui->word_suffix->clear();
@@ -383,4 +398,13 @@ QString PrefixPogoda::HelpImp() {
             "3. Try not to detete any affixs after you have build words, because it will break the dependency between affixs and words\n";
 
     return std::move(str);
+}
+
+bool PrefixPogoda::checkDup(QString s, std::vector<std::pair<QString, QString>>& vec) {
+    for(const auto& ele : vec) {
+        if(s == ele.first) {
+            return false;
+        }
+    }
+    return true;
 }

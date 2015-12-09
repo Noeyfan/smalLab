@@ -54,6 +54,7 @@ private:
     void affix_add_helper(int, QString);
     QString removeSemi(QString);
     std::pair<int,int> get_pos(QString);
+    bool checkDup(QString, std::vector<std::pair<QString, QString>>&);
 
     Ui::PrefixPogoda *ui;
 
