@@ -206,37 +206,37 @@ void PrefixPogoda::on_affix_add_pressed()
         if(!checkDup(ele.first, prefixs)) {
             QMessageBox::warning(this, "Error", "Duplicated affixes inserted",
                                  QMessageBox::Ok);
-            return;
+        }else {
+            prefixs.push_back(ele);
+            affix_add_helper(0, ele.first);
+            ui->word_prefix->clear();
+            ui->word_prefix->addItem("");
+            ui->word_prefix->addItems(affix_lists[0].first);
         }
-        prefixs.push_back(ele);
-        affix_add_helper(0, ele.first);
-        ui->word_prefix->clear();
-        ui->word_prefix->addItem("");
-        ui->word_prefix->addItems(affix_lists[0].first);
         break;
     case 1:
         if(!checkDup(ele.first, roots)) {
             QMessageBox::warning(this, "Error", "Duplicated affixes inserted",
                                  QMessageBox::Ok);
-            return;
+        }else {
+            roots.push_back(ele);
+            affix_add_helper(1, ele.first);
+            ui->word_root->clear();
+            ui->word_root->addItem("");
+            ui->word_root->addItems(affix_lists[1].first);
         }
-        roots.push_back(ele);
-        affix_add_helper(1, ele.first);
-        ui->word_root->clear();
-        ui->word_root->addItem("");
-        ui->word_root->addItems(affix_lists[1].first);
         break;
     case 2:
         if(!checkDup(ele.first, suffixs)) {
             QMessageBox::warning(this, "Error", "Duplicated affixes inserted",
                                  QMessageBox::Ok);
-            return;
+        }else {
+            suffixs.push_back(ele);
+            affix_add_helper(2, ele.first);
+            ui->word_suffix->clear();
+            ui->word_suffix->addItem("");
+            ui->word_suffix->addItems(affix_lists[2].first);
         }
-        suffixs.push_back(ele);
-        affix_add_helper(2, ele.first);
-        ui->word_suffix->clear();
-        ui->word_suffix->addItem("");
-        ui->word_suffix->addItems(affix_lists[2].first);
         break;
     default:
         break;
