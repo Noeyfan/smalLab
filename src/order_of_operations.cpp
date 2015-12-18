@@ -96,9 +96,10 @@ QString OrderOfOperations::HelpImp() {
                   "Stage 2\n"
                   "Input equations that you would like to appear in stage2. \n"
                   "Add a space between each number and operator, as shown in the sample equation.\n"
-                  "All operators will be substituted with blanks when they appear in stage 2.\n"
-                  "Equations are randomly chosen for each team from the pool of equations given.\n"
-                  "Equations that are too long may appear cramped.No negative numbers.";
+                  "All operators will be substituted with blanks when they appear in stage 2.\n\n"
+                  "Notes: \n1. Equations are randomly chosen for each team from the pool of equations given.\n"
+                  "2. Equations that are too long may appear cramped.\n"
+                  "3. No negative numbers.";
 
     return str;
 }

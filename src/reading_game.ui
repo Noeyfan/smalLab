@@ -13,300 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>60</y>
-     <width>801</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Examples</string>
-   </property>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>30</y>
-      <width>783</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QLineEdit" name="e1"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Example2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="8">
-      <widget class="QLabel" name="label_10">
-       <property name="text">
-        <string>Example9</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="e2"/>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Example4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="6">
-      <widget class="QLineEdit" name="e7"/>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Example5</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Example1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="7">
-      <widget class="QLabel" name="label_9">
-       <property name="text">
-        <string>Example8</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="5">
-      <widget class="QLineEdit" name="e6"/>
-     </item>
-     <item row="1" column="7">
-      <widget class="QLineEdit" name="e8"/>
-     </item>
-     <item row="1" column="8">
-      <widget class="QLineEdit" name="e9"/>
-     </item>
-     <item row="0" column="6">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>Example7</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLineEdit" name="e3"/>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLineEdit" name="e5"/>
-     </item>
-     <item row="0" column="9">
-      <widget class="QLabel" name="label_11">
-       <property name="text">
-        <string>Example10</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLineEdit" name="e4"/>
-     </item>
-     <item row="0" column="5">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Example6</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Example3</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="9">
-      <widget class="QLineEdit" name="e10"/>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_2">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>150</y>
-     <width>801</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Inputs</string>
-   </property>
-   <widget class="QWidget" name="gridLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>30</y>
-      <width>783</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="2" column="3">
-      <widget class="QLineEdit" name="ld3"/>
-     </item>
-     <item row="1" column="8">
-      <widget class="QLineEdit" name="ls8"/>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="label_13">
-       <property name="text">
-        <string>List4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="10">
-      <widget class="QLineEdit" name="ls10"/>
-     </item>
-     <item row="2" column="5">
-      <widget class="QLineEdit" name="ld5"/>
-     </item>
-     <item row="2" column="6">
-      <widget class="QLineEdit" name="ld6"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_21">
-       <property name="text">
-        <string>Simmilar</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="9">
-      <widget class="QLineEdit" name="ld9"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="ld1"/>
-     </item>
-     <item row="2" column="4">
-      <widget class="QLineEdit" name="ld4"/>
-     </item>
-     <item row="2" column="8">
-      <widget class="QLineEdit" name="ld8"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_22">
-       <property name="text">
-        <string>Different</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="7">
-      <widget class="QLineEdit" name="ld7"/>
-     </item>
-     <item row="0" column="9">
-      <widget class="QLabel" name="label_12">
-       <property name="text">
-        <string>List9</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLineEdit" name="ls2"/>
-     </item>
-     <item row="0" column="7">
-      <widget class="QLabel" name="label_17">
-       <property name="text">
-        <string>List7</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="label_20">
-       <property name="text">
-        <string>List3</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLineEdit" name="ls4"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>List2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="7">
-      <widget class="QLineEdit" name="ls7"/>
-     </item>
-     <item row="1" column="6">
-      <widget class="QLineEdit" name="ls6"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_15">
-       <property name="text">
-        <string>List1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLineEdit" name="ls3"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="ls1"/>
-     </item>
-     <item row="1" column="9">
-      <widget class="QLineEdit" name="ls9"/>
-     </item>
-     <item row="0" column="8">
-      <widget class="QLabel" name="label_16">
-       <property name="text">
-        <string>List8</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="5">
-      <widget class="QLabel" name="label_14">
-       <property name="text">
-        <string>List5</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="10">
-      <widget class="QLabel" name="label_18">
-       <property name="text">
-        <string>List10</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="5">
-      <widget class="QLineEdit" name="ls5"/>
-     </item>
-     <item row="0" column="6">
-      <widget class="QLabel" name="label_19">
-       <property name="text">
-        <string>List6</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLineEdit" name="ld2"/>
-     </item>
-     <item row="2" column="10">
-      <widget class="QLineEdit" name="ld10"/>
-     </item>
-    </layout>
-   </widget>
-  </widget>
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
@@ -368,6 +74,274 @@
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>80</y>
+     <width>751</width>
+     <height>73</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="6">
+     <widget class="QLineEdit" name="e7"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="e1"/>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLineEdit" name="e4"/>
+    </item>
+    <item row="1" column="8">
+     <widget class="QLineEdit" name="e9"/>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Example 5</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Example 7</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="9">
+     <widget class="QLineEdit" name="e10"/>
+    </item>
+    <item row="0" column="5">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Example 6</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Example 2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Example 3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Example 9</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QLineEdit" name="e5"/>
+    </item>
+    <item row="0" column="9">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>Example 10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="e3"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="e2"/>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Example 4</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Example 8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QLineEdit" name="e6"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Example 1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="7">
+     <widget class="QLineEdit" name="e8"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>160</y>
+     <width>861</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="2" column="3">
+     <widget class="QLineEdit" name="ld3"/>
+    </item>
+    <item row="1" column="8">
+     <widget class="QLineEdit" name="ls8"/>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>List 4</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="10">
+     <widget class="QLineEdit" name="ls10"/>
+    </item>
+    <item row="2" column="5">
+     <widget class="QLineEdit" name="ld5"/>
+    </item>
+    <item row="2" column="6">
+     <widget class="QLineEdit" name="ld6"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_21">
+      <property name="text">
+       <string>Similar(Correct)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="9">
+     <widget class="QLineEdit" name="ld9"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="ld1"/>
+    </item>
+    <item row="2" column="4">
+     <widget class="QLineEdit" name="ld4"/>
+    </item>
+    <item row="2" column="8">
+     <widget class="QLineEdit" name="ld8"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_22">
+      <property name="text">
+       <string>Different(Wrong)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="7">
+     <widget class="QLineEdit" name="ld7"/>
+    </item>
+    <item row="0" column="9">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string>List 9</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="ls2"/>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_17">
+      <property name="text">
+       <string>List 7</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="label_20">
+      <property name="text">
+       <string>List 3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QLineEdit" name="ls4"/>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>List 2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="7">
+     <widget class="QLineEdit" name="ls7"/>
+    </item>
+    <item row="1" column="6">
+     <widget class="QLineEdit" name="ls6"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_15">
+      <property name="text">
+       <string>List 1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLineEdit" name="ls3"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="ls1"/>
+    </item>
+    <item row="1" column="9">
+     <widget class="QLineEdit" name="ls9"/>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>List 8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>List 5</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_18">
+      <property name="text">
+       <string>List 10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QLineEdit" name="ls5"/>
+    </item>
+    <item row="0" column="6">
+     <widget class="QLabel" name="label_19">
+      <property name="text">
+       <string>List 6</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="ld2"/>
+    </item>
+    <item row="2" column="10">
+     <widget class="QLineEdit" name="ld10"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

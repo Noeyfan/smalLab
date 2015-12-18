@@ -395,7 +395,11 @@ void PrefixPogoda::on_affix_delete_clicked()
 QString PrefixPogoda::HelpImp() {
     QString str = "1. Fill the Affix list first and then build word from Affixs\n"
             "2. The word should be separate by ';' in terms of how it can be separated (e.g. \"reaction\" should be typed in as \"re;act;ion\")\n"
-            "3. Try not to detete any affixs after you have build words, because it will break the dependency between affixs and words\n";
+            "3. Try not to detete any affixs after you have build words, because it will break the dependency between affixs and words\n\n"
+            "WARNING:\n"
+                  "1. You should have at least 10 individual Prefixs, 10 individual Roots and 10 individual Suffixs.\n"
+                  "2. Do not duplicate any prefix or root or suffixs or definitions.\n"
+                  "3. Definitions should be limited to under 20 characters including spaces.\n";
 
     return std::move(str);
 }

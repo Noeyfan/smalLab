@@ -90,12 +90,14 @@ bool TeachingTool::CheckEmpty() {
 }
 
 QString TeachingTool::HelpImp() {
-    return "1. Use the load button to select file from you PC \n"
-           "2. After you fill in all the information on the right side, you can click add to add one level to the level list\n"
-           "3. You can select a level from level list and change the content, then click update to update the data\n"
-           "4. Select a level and use delete button to remove it from level list\n"
-           "5. If you want to clean the content you already fill on the right side, you can select any level and click update\n"
-           "6. Scene number of image/vide/text should be filled in a number, others can be filled with any text";
+    return "1) Download the images you want for your scene and save them in a folder on the small Lab computer.\n"
+            "2) Copy the location of the folder and paste it in the column named “Image Location on Smalllab System\n"
+            "3) Enter the name of the image under the column “Image Name ” and enter which scene you want it in , in the column “Scene Number of Image” , besides it.\n\n"
+           "1) For Text and Video you do not have to worry about entering any Folder location\n"
+            "2) For text, all you need to do is enter the text you want to display and enter the scene number besides it. There can be multiple texts in the scene but try to use small words. These text will then appear on the right hand side of the small Lab floor. You can pick them up  , and drag them using the wands.\n"
+            "3) For Video, once you have found the video you want to show on the internet, copy the address of the video and enter it under the column “Video URL” , enter the name of the video you want to display on the small lab floor in the corresponding row under the column “Name of the Video”. You can then show this video by click on the “Video Name” on the small lab floor. All the video names occur on the left hand side of the floor. Again, try to give small names, and you can enter as many videos in any scene you want.\n\n"
+           "Notes:\n1) The first image in each scene becomes the default background image that shows on the floor in that scene. For example, there will be a list of images showing in scene 1, but the first image you put at the column with scene number as 1 will show on the floor as default image. The others will hide at top until you use the wand click it.\n"
+           "2) A new scene will be created only if you have an image in that scene, and you cannot enter a video or a text content for a scene which does not have any images in it.";
 }
 
 void TeachingTool::on_load_button_clicked()

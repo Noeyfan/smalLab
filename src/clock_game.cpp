@@ -9,16 +9,20 @@ ClockGame::ClockGame(QWidget *parent) : ConfigWindowBase(parent), list_view(new 
     QLabel *label6 = new QLabel("duration hour", this);
     QLabel *label7 = new QLabel("duration minute", this);
     QLabel *label8 = new QLabel("end am/pm", this);
+    QLabel *label9 = new QLabel("Start Time : ", this);
+    QLabel *label10 = new QLabel("Elapsed Time : ", this);
+    QLabel *label11 = new QLabel("End Time : ", this);
 
     start_hour = new QLineEdit("0", this);
-    start_hour->move(200, 100 + 60);
-    label1->move(200, 130);
+    start_hour->move(200, 80 + 60);
+    label1->move(200, 110);
+    label9->move(200, 90);
     start_minute = new QLineEdit("0", this);
-    start_minute->move(320, 100 + 60);
-    label2->move(320, 130);
+    start_minute->move(320, 80 + 60);
+    label2->move(320, 110);
     start_am_pm = new QComboBox(this);
-    start_am_pm->move(440, 100 + 60);
-    label3->move(440, 130);
+    start_am_pm->move(440, 80 + 60);
+    label3->move(440, 110);
     start_am_pm->addItems(am_pm);
 
     connect(start_hour, SIGNAL(editingFinished()), this, SLOT(SetVal()));
@@ -28,20 +32,22 @@ ClockGame::ClockGame(QWidget *parent) : ConfigWindowBase(parent), list_view(new 
     duration_hour = new QLineEdit("0", this);
     duration_minute = new QLineEdit("0", this);
     duration_hour->move(200, 175 + 60);
+    label10->move(200, 185);
     label6->move(200, 205);
     duration_minute->move(320, 175 + 60);
     label7->move(320, 205);
 
     end_hour = new QLineEdit("0", this);
-    end_hour->move(200, 250 + 60);
-    label4->move(200, 280);
+    end_hour->move(200, 260 + 60);
+    label4->move(200, 290);
     end_minute = new QLineEdit("0", this);
-    end_minute->move(320, 250 + 60);
-    label5->move(320, 280);
+    end_minute->move(320, 260 + 60);
+    label5->move(320, 290);
+    label11->move(200, 270);
     end_am_pm = new QComboBox(this);
-    end_am_pm->move(440, 250 + 60);
+    end_am_pm->move(440, 260 + 60);
     end_am_pm->addItems(am_pm);
-    label8->move(440, 280);
+    label8->move(440, 290);
 
     connect(end_hour, SIGNAL(editingFinished()), this, SLOT(SetVal()));
     connect(end_minute, SIGNAL(editingFinished()), this, SLOT(SetVal()));
@@ -179,10 +185,11 @@ bool ClockGame::CheckEmpty() {
 }
 
 QString ClockGame::HelpImp() {
-    return "1. Fisrt Mode: If you just input the value for the START TIME column, "
+    return "1. First Mode: If you just input the value for the START TIME field, "
            "it will be the first mode. Give the digital time, and let the kids move the wand to the right place.\n"
            "2. Second Mode: if you input two of the three values, "
            "it would be the second mode, which you give either two of the three and let the kids figure out the left one.\n"
            "3. Use the same file for the multiplayer "
-           "mode of the game. Questions for both team will be the same, so input content would be the same as the single player mode.";
+           "mode of the game. Questions for both team will be the same, so input content would be the same as the single player mode.\n\n"
+           "WARNING: Please do not enter all 3 values(Start Time, Elapsed Time and End Time) per level";
 }

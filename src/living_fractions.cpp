@@ -51,7 +51,7 @@ LivingFractions::LivingFractions(QWidget *parent) : ConfigWindowBase(parent)
                                     "percent", "angle"}));
         fractions[i]->resize(100, 25);
         fractions[i]->move(200, 200 + i * 60);
-        QLabel *goal_label = new QLabel("format" + QString::number(i + 1), this);
+        QLabel *goal_label = new QLabel("fraction" + QString::number(i + 1), this);
         goal_label->move(210, 170 + i * 60);
         connect(fractions[i], SIGNAL(activated(int)), this, SLOT(SetValueFormat()));
     }
@@ -210,6 +210,6 @@ QString LivingFractions::HelpImp() {
            "1/8 * 1/3 * 1/5 = 1/120)\n"
            "3. Every number on the pie chart can be represented through fractions, "
            "decimals, percentages, or left blank, and these representations change from one level to the next.\n"
-           "4. Each Level needs at least one goal (in decimal), and a way to represent that goal\n"
-           "5. If the sum value is over 1, then your goals are unattainable.\n";
+           "4. Each Level needs at least one goal (in decimal), and a way to represent that goal\n\n"
+           "WARNING: If the sum value is over 1, then your goals are unattainable.\n";
 }
